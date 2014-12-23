@@ -9,11 +9,23 @@
 /* Begin PBXBuildFile section */
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664DA1A4932FC00925448 /* OnTap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D81A4932FC00925448 /* OnTap.xcdatamodeld */; };
-		2B4664DC1A4932FC00925448 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664DB1A4932FC00925448 /* ViewController.swift */; };
-		2B4664DF1A4932FC00925448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664DD1A4932FC00925448 /* Main.storyboard */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
 		2B4664F01A4932FC00925448 /* OnTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664EF1A4932FC00925448 /* OnTapTests.swift */; };
+		2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664FB1A49344B00925448 /* CodeViewController.swift */; };
+		2B4665051A49345E00925448 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664FD1A49345E00925448 /* FirstViewController.swift */; };
+		2B4665061A49345E00925448 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664FE1A49345E00925448 /* Inventory.swift */; };
+		2B4665071A49345E00925448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664FF1A49345E00925448 /* Main.storyboard */; };
+		2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665001A49345E00925448 /* OnTap.xcdatamodeld */; };
+		2B4665091A49345E00925448 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665021A49345E00925448 /* SecondViewController.swift */; };
+		2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665031A49345E00925448 /* SwiftyJSON.swift */; };
+		2B46650B1A49345E00925448 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665041A49345E00925448 /* ViewController.swift */; };
+		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4665341A49356B00925448 /* Alamofire.framework */; };
+		2B4665401A49DEB500925448 /* BDBBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665381A49DEB500925448 /* BDBBeer.m */; };
+		2B4665411A49DEB500925448 /* BDBBrewery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46653A1A49DEB500925448 /* BDBBrewery.m */; };
+		2B4665421A49DEB500925448 /* BDBGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46653D1A49DEB500925448 /* BDBGuild.m */; };
+		2B4665431A49DEB500925448 /* BreweryDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46653F1A49DEB500925448 /* BreweryDB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,20 +36,71 @@
 			remoteGlobalIDString = 2B4664D01A4932FC00925448;
 			remoteInfo = OnTap;
 		};
+		2B46652C1A49354700925448 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B4665271A49354700925448 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		2B46652E1A49354700925448 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B4665271A49354700925448 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
+		2B4665301A49354D00925448 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B4665271A49354700925448 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2B4665321A49355000925448 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B4664D91A4932FC00925448 /* OnTap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTap.xcdatamodel; sourceTree = "<group>"; };
-		2B4664DB1A4932FC00925448 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2B4664DE1A4932FC00925448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B4664E01A4932FC00925448 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2B4664E31A4932FC00925448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2B4664E91A4932FC00925448 /* OnTapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664EE1A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664EF1A4932FC00925448 /* OnTapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTapTests.swift; sourceTree = "<group>"; };
+		2B4664FB1A49344B00925448 /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		2B4664FD1A49345E00925448 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2B4664FE1A49345E00925448 /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		2B4664FF1A49345E00925448 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2B4665011A49345E00925448 /* OnTap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTap.xcdatamodel; sourceTree = "<group>"; };
+		2B4665021A49345E00925448 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2B4665031A49345E00925448 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		2B4665041A49345E00925448 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		2B4665371A49DEB500925448 /* BDBBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBBeer.h; sourceTree = "<group>"; };
+		2B4665381A49DEB500925448 /* BDBBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBBeer.m; sourceTree = "<group>"; };
+		2B4665391A49DEB500925448 /* BDBBrewery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBBrewery.h; sourceTree = "<group>"; };
+		2B46653A1A49DEB500925448 /* BDBBrewery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBBrewery.m; sourceTree = "<group>"; };
+		2B46653B1A49DEB500925448 /* BDBErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBErrors.h; sourceTree = "<group>"; };
+		2B46653C1A49DEB500925448 /* BDBGuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBGuild.h; sourceTree = "<group>"; };
+		2B46653D1A49DEB500925448 /* BDBGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBGuild.m; sourceTree = "<group>"; };
+		2B46653E1A49DEB500925448 /* BreweryDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreweryDB.h; sourceTree = "<group>"; };
+		2B46653F1A49DEB500925448 /* BreweryDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreweryDB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,9 +125,11 @@
 		2B4664C81A4932FC00925448 = {
 			isa = PBXGroup;
 			children = (
+				2B4665341A49356B00925448 /* Alamofire.framework */,
 				2B4664D31A4932FC00925448 /* OnTap */,
 				2B4664EC1A4932FC00925448 /* OnTapTests */,
 				2B4664D21A4932FC00925448 /* Products */,
+				2B4665271A49354700925448 /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,11 +146,18 @@
 			isa = PBXGroup;
 			children = (
 				2B4664D61A4932FC00925448 /* AppDelegate.swift */,
-				2B4664DB1A4932FC00925448 /* ViewController.swift */,
-				2B4664DD1A4932FC00925448 /* Main.storyboard */,
+				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
+				2B4664FE1A49345E00925448 /* Inventory.swift */,
+				2B4664FF1A49345E00925448 /* Main.storyboard */,
+				2B4665001A49345E00925448 /* OnTap.xcdatamodeld */,
+				2B4665021A49345E00925448 /* SecondViewController.swift */,
+				2B4665031A49345E00925448 /* SwiftyJSON.swift */,
+				2B4665041A49345E00925448 /* ViewController.swift */,
+				2B4664FB1A49344B00925448 /* CodeViewController.swift */,
 				2B4664E01A4932FC00925448 /* Images.xcassets */,
 				2B4664E21A4932FC00925448 /* LaunchScreen.xib */,
 				2B4664D81A4932FC00925448 /* OnTap.xcdatamodeld */,
+				2B4665361A49DEB500925448 /* BreweryDB */,
 				2B4664D41A4932FC00925448 /* Supporting Files */,
 			);
 			path = OnTap;
@@ -115,6 +188,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2B4665281A49354700925448 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B46652D1A49354700925448 /* Alamofire.framework */,
+				2B46652F1A49354700925448 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B4665361A49DEB500925448 /* BreweryDB */ = {
+			isa = PBXGroup;
+			children = (
+				2B4665371A49DEB500925448 /* BDBBeer.h */,
+				2B4665381A49DEB500925448 /* BDBBeer.m */,
+				2B4665391A49DEB500925448 /* BDBBrewery.h */,
+				2B46653A1A49DEB500925448 /* BDBBrewery.m */,
+				2B46653B1A49DEB500925448 /* BDBErrors.h */,
+				2B46653C1A49DEB500925448 /* BDBGuild.h */,
+				2B46653D1A49DEB500925448 /* BDBGuild.m */,
+				2B46653E1A49DEB500925448 /* BreweryDB.h */,
+				2B46653F1A49DEB500925448 /* BreweryDB.m */,
+			);
+			name = BreweryDB;
+			path = BreweryDB/BreweryDB;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +224,12 @@
 				2B4664CD1A4932FC00925448 /* Sources */,
 				2B4664CE1A4932FC00925448 /* Frameworks */,
 				2B4664CF1A4932FC00925448 /* Resources */,
+				2B4665321A49355000925448 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2B4665311A49354D00925448 /* PBXTargetDependency */,
 			);
 			name = OnTap;
 			productName = OnTap;
@@ -164,6 +265,7 @@
 				TargetAttributes = {
 					2B4664D01A4932FC00925448 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = B782ML49FF;
 					};
 					2B4664E81A4932FC00925448 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -182,6 +284,12 @@
 			mainGroup = 2B4664C81A4932FC00925448;
 			productRefGroup = 2B4664D21A4932FC00925448 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2B4665281A49354700925448 /* Products */;
+					ProjectRef = 2B4665271A49354700925448 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2B4664D01A4932FC00925448 /* OnTap */,
@@ -190,14 +298,31 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2B46652D1A49354700925448 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 2B46652C1A49354700925448 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2B46652F1A49354700925448 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 2B46652E1A49354700925448 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		2B4664CF1A4932FC00925448 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B4664DF1A4932FC00925448 /* Main.storyboard in Resources */,
 				2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */,
 				2B4664E11A4932FC00925448 /* Images.xcassets in Resources */,
+				2B4665071A49345E00925448 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +340,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B4664DC1A4932FC00925448 /* ViewController.swift in Sources */,
+				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
 				2B4664DA1A4932FC00925448 /* OnTap.xcdatamodeld in Sources */,
+				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
+				2B4665411A49DEB500925448 /* BDBBrewery.m in Sources */,
+				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
+				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
+				2B4665421A49DEB500925448 /* BDBGuild.m in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
+				2B4665431A49DEB500925448 /* BreweryDB.m in Sources */,
+				2B4665091A49345E00925448 /* SecondViewController.swift in Sources */,
+				2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */,
+				2B4665401A49DEB500925448 /* BDBBeer.m in Sources */,
+				2B4665051A49345E00925448 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,17 +372,14 @@
 			target = 2B4664D01A4932FC00925448 /* OnTap */;
 			targetProxy = 2B4664EA1A4932FC00925448 /* PBXContainerItemProxy */;
 		};
+		2B4665311A49354D00925448 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 2B4665301A49354D00925448 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2B4664DD1A4932FC00925448 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B4664DE1A4932FC00925448 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2B4664E21A4932FC00925448 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -342,6 +474,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +489,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +553,7 @@
 				2B4664F51A4932FC00925448 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B4664F61A4932FC00925448 /* Build configuration list for PBXNativeTarget "OnTapTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +562,7 @@
 				2B4664F81A4932FC00925448 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -429,6 +573,16 @@
 				2B4664D91A4932FC00925448 /* OnTap.xcdatamodel */,
 			);
 			currentVersion = 2B4664D91A4932FC00925448 /* OnTap.xcdatamodel */;
+			path = OnTap.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		2B4665001A49345E00925448 /* OnTap.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2B4665011A49345E00925448 /* OnTap.xcdatamodel */,
+			);
+			currentVersion = 2B4665011A49345E00925448 /* OnTap.xcdatamodel */;
 			path = OnTap.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
