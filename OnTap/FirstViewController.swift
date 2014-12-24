@@ -81,6 +81,14 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             {
                 mCode = "\(readableObject.stringValue)"
             }
+            else if(metadataObject.type == AVMetadataObjectTypeUPCECode)
+            {
+                mCode = "\(readableObject.stringValue)"
+            }
+//            else
+//            {
+//                mCode = "\(readableObject.stringValue)"
+//            }
         }
         if( mCode != "" )
         {

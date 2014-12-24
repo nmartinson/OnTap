@@ -22,10 +22,7 @@
 		2B46650B1A49345E00925448 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665041A49345E00925448 /* ViewController.swift */; };
 		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4665341A49356B00925448 /* Alamofire.framework */; };
-		2B4665401A49DEB500925448 /* BDBBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665381A49DEB500925448 /* BDBBeer.m */; };
-		2B4665411A49DEB500925448 /* BDBBrewery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46653A1A49DEB500925448 /* BDBBrewery.m */; };
-		2B4665421A49DEB500925448 /* BDBGuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46653D1A49DEB500925448 /* BDBGuild.m */; };
-		2B4665431A49DEB500925448 /* BreweryDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46653F1A49DEB500925448 /* BreweryDB.m */; };
+		2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665481A4A6F4B00925448 /* AddBeerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,15 +89,7 @@
 		2B4665041A49345E00925448 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		2B4665371A49DEB500925448 /* BDBBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBBeer.h; sourceTree = "<group>"; };
-		2B4665381A49DEB500925448 /* BDBBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBBeer.m; sourceTree = "<group>"; };
-		2B4665391A49DEB500925448 /* BDBBrewery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBBrewery.h; sourceTree = "<group>"; };
-		2B46653A1A49DEB500925448 /* BDBBrewery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBBrewery.m; sourceTree = "<group>"; };
-		2B46653B1A49DEB500925448 /* BDBErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBErrors.h; sourceTree = "<group>"; };
-		2B46653C1A49DEB500925448 /* BDBGuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBGuild.h; sourceTree = "<group>"; };
-		2B46653D1A49DEB500925448 /* BDBGuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBGuild.m; sourceTree = "<group>"; };
-		2B46653E1A49DEB500925448 /* BreweryDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreweryDB.h; sourceTree = "<group>"; };
-		2B46653F1A49DEB500925448 /* BreweryDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreweryDB.m; sourceTree = "<group>"; };
+		2B4665481A4A6F4B00925448 /* AddBeerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerController.swift; path = ../../OnTap2/OnTap/AddBeerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,10 +143,10 @@
 				2B4665031A49345E00925448 /* SwiftyJSON.swift */,
 				2B4665041A49345E00925448 /* ViewController.swift */,
 				2B4664FB1A49344B00925448 /* CodeViewController.swift */,
+				2B4665481A4A6F4B00925448 /* AddBeerController.swift */,
 				2B4664E01A4932FC00925448 /* Images.xcassets */,
 				2B4664E21A4932FC00925448 /* LaunchScreen.xib */,
 				2B4664D81A4932FC00925448 /* OnTap.xcdatamodeld */,
-				2B4665361A49DEB500925448 /* BreweryDB */,
 				2B4664D41A4932FC00925448 /* Supporting Files */,
 			);
 			path = OnTap;
@@ -196,23 +185,6 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
-		};
-		2B4665361A49DEB500925448 /* BreweryDB */ = {
-			isa = PBXGroup;
-			children = (
-				2B4665371A49DEB500925448 /* BDBBeer.h */,
-				2B4665381A49DEB500925448 /* BDBBeer.m */,
-				2B4665391A49DEB500925448 /* BDBBrewery.h */,
-				2B46653A1A49DEB500925448 /* BDBBrewery.m */,
-				2B46653B1A49DEB500925448 /* BDBErrors.h */,
-				2B46653C1A49DEB500925448 /* BDBGuild.h */,
-				2B46653D1A49DEB500925448 /* BDBGuild.m */,
-				2B46653E1A49DEB500925448 /* BreweryDB.h */,
-				2B46653F1A49DEB500925448 /* BreweryDB.m */,
-			);
-			name = BreweryDB;
-			path = BreweryDB/BreweryDB;
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -343,15 +315,12 @@
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
 				2B4664DA1A4932FC00925448 /* OnTap.xcdatamodeld in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
-				2B4665411A49DEB500925448 /* BDBBrewery.m in Sources */,
 				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
-				2B4665421A49DEB500925448 /* BDBGuild.m in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
-				2B4665431A49DEB500925448 /* BreweryDB.m in Sources */,
 				2B4665091A49345E00925448 /* SecondViewController.swift in Sources */,
+				2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */,
 				2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */,
-				2B4665401A49DEB500925448 /* BDBBeer.m in Sources */,
 				2B4665051A49345E00925448 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +451,7 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -497,6 +467,7 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

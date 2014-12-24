@@ -14,9 +14,11 @@ import CoreData
 
 class CodeViewController: UIViewController
 {
+    @IBOutlet weak var labelImage: UIImageView!
+    @IBOutlet weak var abvText: UITextView!
+    @IBOutlet weak var ibuText: UITextView!
     @IBOutlet weak var onTapText: UITextView!
     @IBOutlet weak var addField: UITextField!
-    @IBOutlet weak var country: UITextView!
     @IBOutlet weak var name: UITextView!
     var codeStr:String = ""
     var nameStr:String = ""
@@ -31,20 +33,50 @@ class CodeViewController: UIViewController
         }
         }()
     
-    override func viewWillAppear(animated: Bool)
+    override func viewDidLoad()
     {
-        var url = "http://www.outpan.com/api/get-product.php?barcode=\(codeStr)&apikey=3a3657604cc7b7f103cfce13c9c01839"
-//        println(url)
+        var item = ""
+        println(codeStr)
+        var url = "http://api.upcdatabase.org/json/ae64c921a1f7fac054b7af59091d12a9/\(codeStr)"
         Alamofire.request(.GET, url, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-            println(data!)
+//            println(data!)
             let json = JSON(data!)
-            let name = json["name"].stringValue
-            self.nameStr = name
-            let country = json["attributes"]["Country"].stringValue
-            self.name.text = "Name: \(name)"
-            self.country.text = "Country: \(country)"
+            if(json["valid"].stringValue == "false")
+            {
+                println("NOT VALID")
+                self.doSegue()
+            }
+            else
+            {
+                let json = JSON(data!)
+                let description = json["itemname"].stringValue
+                println("Item \(description)")
+                item = description
+                item = item.stringByReplacingOccurrencesOfString(" ", withString: "_").lowercaseString
+            
+                var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&key=dacc2d3e348d431bbe07adca89ac2113"
+                Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
+    //                println(data)
+                    let json = JSON(data!)
+                    let description = json["data"][0]["style"]["description"].stringValue
+                    let name = json["data"][0]["name"].stringValue
+                    let abv = json["data"][0]["abv"].floatValue
+                    let ibu = json["data"][0]["ibu"].floatValue
+                    let image = json["data"][0]["labels"]["medium"].stringValue
+                    
+                    self.name.text = "Name: \(name)"
+                    self.abvText.text = "ABV: \(abv)%"
+                    self.ibuText.text = "IBU: \(ibu)"
+                    
+                    Alamofire.request(.GET, image, parameters: nil).response{ (_,_, data, _) -> Void in
+                        let image = UIImage(data: data! as NSData)
+                        self.labelImage.image = image
+                    }
+                }
+            }
         }
-        presentItemInfo()
+    
+//        presentItemInfo()
     }
     
     @IBAction func addButton(sender: AnyObject)
@@ -72,6 +104,12 @@ class CodeViewController: UIViewController
     {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    
+    func doSegue()
+    {
+        performSegueWithIdentifier("addBeerSegue", sender: self)
     }
     
     func presentItemInfo()
