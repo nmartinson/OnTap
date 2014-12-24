@@ -11,9 +11,29 @@ import UIKit
 import Alamofire
 import CoreData
 
+extension Alamofire.Request
+{
+    class func imageResponseSerializer() -> Serializer{
+        return { request, response, data in
+            if( data == nil) {
+                return (nil,nil)
+            }
+            let image = UIImage(data: data!, scale: UIScreen.mainScreen().scale)
+            
+            return (image, nil)
+        }
+    }
+    
+    func responseImage(completionHandler: (NSURLRequest, NSHTTPURLResponse?, UIImage?, NSError?) -> Void) -> Self{
+        return response(serializer: Request.imageResponseSerializer(), completionHandler: { (request, response, image, error) in
+            completionHandler(request, response, image as? UIImage, error)
+        })
+    }
+}
 
 class CodeViewController: UIViewController
 {
+    var request: Alamofire.Request?
     @IBOutlet weak var labelImage: UIImageView!
     @IBOutlet weak var abvText: UITextView!
     @IBOutlet weak var ibuText: UITextView!
@@ -49,14 +69,19 @@ class CodeViewController: UIViewController
             else
             {
                 let json = JSON(data!)
-                let description = json["itemname"].stringValue
-                println("Item \(description)")
-                item = description
-                item = item.stringByReplacingOccurrencesOfString(" ", withString: "_").lowercaseString
-            
+                let itemname = json["itemname"].stringValue
+                let description = json["description"].stringValue
+                println("Item \(itemname)")
+                item = "\(itemname) \(description)"
+                item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
+                item = item.stringByReplacingOccurrencesOfString("&", withString: "")
+                item = item.stringByReplacingOccurrencesOfString(";", withString: "")
+                item = item.stringByReplacingOccurrencesOfString("#", withString: "")
+
                 var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&key=dacc2d3e348d431bbe07adca89ac2113"
+                println("URL \(brewURL)")
                 Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-    //                println(data)
+                    println(data)
                     let json = JSON(data!)
                     let description = json["data"][0]["style"]["description"].stringValue
                     let name = json["data"][0]["name"].stringValue
@@ -68,15 +93,14 @@ class CodeViewController: UIViewController
                     self.abvText.text = "ABV: \(abv)%"
                     self.ibuText.text = "IBU: \(ibu)"
                     
-                    Alamofire.request(.GET, image, parameters: nil).response{ (_,_, data, _) -> Void in
-                        let image = UIImage(data: data! as NSData)
-                        self.labelImage.image = image
-                    }
+                    Alamofire.request(.GET,image).responseImage({ (request, _, image, error) -> Void in
+                        if error == nil && image != nil{
+                            self.labelImage.image = image
+                        }
+                    })
                 }
             }
         }
-    
-//        presentItemInfo()
     }
     
     @IBAction func addButton(sender: AnyObject)
@@ -106,6 +130,14 @@ class CodeViewController: UIViewController
         return true;
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if( segue.identifier == "addBeerSegue")
+        {
+            var controller = segue.destinationViewController as AddBeerController
+            controller.upc = codeStr
+        }
+    }
     
     func doSegue()
     {
