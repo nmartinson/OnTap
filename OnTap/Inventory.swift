@@ -13,5 +13,6 @@ class Inventory: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var amount: NSNumber
+    @NSManaged var barcode: String
 
 }

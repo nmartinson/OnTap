@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
-		2B4664DA1A4932FC00925448 /* OnTap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D81A4932FC00925448 /* OnTap.xcdatamodeld */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
 		2B4664F01A4932FC00925448 /* OnTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664EF1A4932FC00925448 /* OnTapTests.swift */; };
@@ -73,7 +72,6 @@
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B4664D91A4932FC00925448 /* OnTap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTap.xcdatamodel; sourceTree = "<group>"; };
 		2B4664E01A4932FC00925448 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2B4664E31A4932FC00925448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2B4664E91A4932FC00925448 /* OnTapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +144,6 @@
 				2B4665481A4A6F4B00925448 /* AddBeerController.swift */,
 				2B4664E01A4932FC00925448 /* Images.xcassets */,
 				2B4664E21A4932FC00925448 /* LaunchScreen.xib */,
-				2B4664D81A4932FC00925448 /* OnTap.xcdatamodeld */,
 				2B4664D41A4932FC00925448 /* Supporting Files */,
 			);
 			path = OnTap;
@@ -313,7 +310,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
-				2B4664DA1A4932FC00925448 /* OnTap.xcdatamodeld in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
 				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
@@ -538,16 +534,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2B4664D81A4932FC00925448 /* OnTap.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2B4664D91A4932FC00925448 /* OnTap.xcdatamodel */,
-			);
-			currentVersion = 2B4664D91A4932FC00925448 /* OnTap.xcdatamodel */;
-			path = OnTap.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		2B4665001A49345E00925448 /* OnTap.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Scanner-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="OnTap" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Scanner" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <segue destination="bfE-4L-Jzy" kind="show" identifier="CodeViewSegue" id="8ki-gn-KPT"/>
                     </connections>
@@ -60,8 +60,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6A-fW-l9E">
+                                <rect key="frame" x="-0.5" y="64" width="600" height="487"/>
+                            </scrollView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Name:" translatesAutoresizingMaskIntoConstraints="NO" id="kTT-gp-ult">
-                                <rect key="frame" x="16" y="64" width="568" height="44"/>
+                                <rect key="frame" x="16" y="64" width="568" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" link="YES"/>
@@ -87,14 +90,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="On Tap: " translatesAutoresizingMaskIntoConstraints="NO" id="SXW-vk-SjW">
-                                <rect key="frame" x="16" y="155" width="568" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="On Tap: 0" translatesAutoresizingMaskIntoConstraints="NO" id="SXW-vk-SjW">
+                                <rect key="frame" x="16" y="155" width="568" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Add:" translatesAutoresizingMaskIntoConstraints="NO" id="OgI-9y-4CO">
-                                <rect key="frame" x="16" y="191" width="46" height="35"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Add:" translatesAutoresizingMaskIntoConstraints="NO" id="OgI-9y-4CO">
+                                <rect key="frame" x="16" y="191" width="46" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -103,15 +106,18 @@
                                 <rect key="frame" x="82" y="194" width="56" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bfE-4L-Jzy" id="2Za-rv-3of"/>
+                                </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="ABV: " translatesAutoresizingMaskIntoConstraints="NO" id="3XP-i9-FmC">
-                                <rect key="frame" x="16" y="98" width="568" height="36"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="ABV: " translatesAutoresizingMaskIntoConstraints="NO" id="3XP-i9-FmC">
+                                <rect key="frame" x="16" y="93" width="568" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="IBU: " translatesAutoresizingMaskIntoConstraints="NO" id="rer-kE-8FG">
-                                <rect key="frame" x="16" y="126" width="568" height="31"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="IBU: " translatesAutoresizingMaskIntoConstraints="NO" id="rer-kE-8FG">
+                                <rect key="frame" x="16" y="126" width="568" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -119,24 +125,58 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-ue-laZ">
                                 <rect key="frame" x="196" y="98" width="150" height="150"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhA-vp-oxD">
+                                <rect key="frame" x="16" y="266" width="330" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrV-Az-vei">
+                                <rect key="frame" x="18" y="237" width="92.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Style:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhb-X8-ble">
+                                <rect key="frame" x="16" y="402" width="43" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJa-jr-FcL">
+                                <rect key="frame" x="11" y="423" width="341" height="111"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OgI-9y-4CO" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="084-wK-Qli"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SXW-vk-SjW" secondAttribute="trailing" id="12w-5O-kEK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3XP-i9-FmC" secondAttribute="trailing" id="1jr-80-ggo"/>
+                            <constraint firstItem="qhb-X8-ble" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="382" id="3vh-Cg-SI3"/>
+                            <constraint firstItem="iJa-jr-FcL" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="-5" id="6xK-Fi-gs8"/>
+                            <constraint firstItem="mrV-Az-vei" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="217" id="7ci-Du-xCd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rer-kE-8FG" secondAttribute="trailing" id="8Xa-X4-69n"/>
+                            <constraint firstItem="qhb-X8-ble" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="BCz-AH-nEb"/>
+                            <constraint firstItem="LhA-vp-oxD" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="ImM-YZ-Hi0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tTz-NH-V4c" secondAttribute="trailing" constant="-16" id="Knb-bH-OmE"/>
-                            <constraint firstItem="3XP-i9-FmC" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="78" id="KpD-9N-xOi"/>
+                            <constraint firstItem="mrV-Az-vei" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="2" id="O1z-la-xiK"/>
                             <constraint firstItem="O8b-0e-i17" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="66" id="P0X-Xf-S1N"/>
+                            <constraint firstItem="LhA-vp-oxD" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="246" id="Pl1-4C-Lkw"/>
                             <constraint firstItem="tTz-NH-V4c" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="-16" id="ULF-c7-qYK"/>
+                            <constraint firstItem="3XP-i9-FmC" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="73" id="Ugk-dY-fZM"/>
                             <constraint firstItem="rer-kE-8FG" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="Xzb-63-hyl"/>
                             <constraint firstItem="kTT-gp-ult" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="daC-uZ-nAe"/>
                             <constraint firstItem="SXW-vk-SjW" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="gP0-Te-vfd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kTT-gp-ult" secondAttribute="trailing" id="gPj-7V-oHB"/>
                             <constraint firstItem="3XP-i9-FmC" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" id="hmI-jJ-cDc"/>
+                            <constraint firstItem="iJa-jr-FcL" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="-5" id="itf-hp-vfr"/>
                             <constraint firstItem="kTT-gp-ult" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="44" id="lsI-kj-h0G"/>
+                            <constraint firstItem="iJa-jr-FcL" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="-5" id="poL-F5-Ivw"/>
                             <constraint firstItem="ACq-ue-laZ" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="78" id="qc1-sQ-dov"/>
+                            <constraint firstItem="iJa-jr-FcL" firstAttribute="leading" secondItem="Cc2-wU-8Vg" secondAttribute="leadingMargin" constant="-5" id="re7-hH-V1w"/>
                             <constraint firstItem="tTz-NH-V4c" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" id="rzq-uO-Ixt"/>
                             <constraint firstItem="rer-kE-8FG" firstAttribute="top" secondItem="SIy-GV-S1L" secondAttribute="bottom" constant="106" id="sr5-fv-qql"/>
                         </constraints>
@@ -144,10 +184,12 @@
                     <connections>
                         <outlet property="abvText" destination="3XP-i9-FmC" id="CVB-Z0-y4w"/>
                         <outlet property="addField" destination="O8b-0e-i17" id="AYh-74-G6l"/>
+                        <outlet property="descriptionText" destination="LhA-vp-oxD" id="SXt-FZ-oUq"/>
                         <outlet property="ibuText" destination="rer-kE-8FG" id="Mog-KG-Nsl"/>
                         <outlet property="labelImage" destination="ACq-ue-laZ" id="9Uy-bs-avz"/>
                         <outlet property="name" destination="kTT-gp-ult" id="7fL-Eh-Omr"/>
                         <outlet property="onTapText" destination="SXW-vk-SjW" id="KXa-Ft-Adr"/>
+                        <outlet property="styleDescriptionText" destination="iJa-jr-FcL" id="Rao-eA-ud9"/>
                         <segue destination="uTb-py-5Dm" kind="presentation" identifier="addBeerSegue" id="7gB-Sz-NQK"/>
                     </connections>
                 </viewController>
@@ -171,11 +213,17 @@
                                 <rect key="frame" x="201" y="94" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uTb-py-5Dm" id="1Ou-eJ-rm1"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="                    " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QbJ-Dw-P3G">
                                 <rect key="frame" x="201" y="155" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uTb-py-5Dm" id="oOS-Un-09W"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00            " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aD3-rp-MyM">
                                 <rect key="frame" x="201" y="204" width="97" height="30"/>
@@ -263,7 +311,7 @@
             </objects>
             <point key="canvasLocation" x="2498" y="-322"/>
         </scene>
-        <!--Second-->
+        <!--On Tap-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="OnTap" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,7 +323,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="On Tap" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
                                 <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
@@ -297,7 +345,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="On Tap" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
