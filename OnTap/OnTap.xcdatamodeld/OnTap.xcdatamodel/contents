@@ -3,9 +3,11 @@
     <entity name="Inventory" representedClassName="OnTap.Inventory" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Inventory" positionX="-45" positionY="0" width="128" height="90"/>
+        <element name="Inventory" positionX="-45" positionY="0" width="128" height="120"/>
     </elements>
 </model>

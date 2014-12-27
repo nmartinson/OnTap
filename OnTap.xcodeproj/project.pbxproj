@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EAAF61A4E0C150083CC69 /* SearchViewController.swift */; };
+		2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EAAF91A4E2F660083CC69 /* BreweryDBapi.swift */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -16,7 +18,7 @@
 		2B4665061A49345E00925448 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664FE1A49345E00925448 /* Inventory.swift */; };
 		2B4665071A49345E00925448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664FF1A49345E00925448 /* Main.storyboard */; };
 		2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665001A49345E00925448 /* OnTap.xcdatamodeld */; };
-		2B4665091A49345E00925448 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665021A49345E00925448 /* SecondViewController.swift */; };
+		2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665021A49345E00925448 /* OnTapViewController.swift */; };
 		2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665031A49345E00925448 /* SwiftyJSON.swift */; };
 		2B46650B1A49345E00925448 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665041A49345E00925448 /* ViewController.swift */; };
 		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -69,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B0EAAF61A4E0C150083CC69 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2B0EAAF91A4E2F660083CC69 /* BreweryDBapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDBapi.swift; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +86,7 @@
 		2B4664FE1A49345E00925448 /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		2B4664FF1A49345E00925448 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2B4665011A49345E00925448 /* OnTap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnTap.xcdatamodel; sourceTree = "<group>"; };
-		2B4665021A49345E00925448 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2B4665021A49345E00925448 /* OnTapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTapViewController.swift; sourceTree = "<group>"; };
 		2B4665031A49345E00925448 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		2B4665041A49345E00925448 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -137,7 +141,9 @@
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
 				2B4664FF1A49345E00925448 /* Main.storyboard */,
 				2B4665001A49345E00925448 /* OnTap.xcdatamodeld */,
-				2B4665021A49345E00925448 /* SecondViewController.swift */,
+				2B4665021A49345E00925448 /* OnTapViewController.swift */,
+				2B0EAAF61A4E0C150083CC69 /* SearchViewController.swift */,
+				2B0EAAF91A4E2F660083CC69 /* BreweryDBapi.swift */,
 				2B4665031A49345E00925448 /* SwiftyJSON.swift */,
 				2B4665041A49345E00925448 /* ViewController.swift */,
 				2B4664FB1A49344B00925448 /* CodeViewController.swift */,
@@ -309,12 +315,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */,
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
+				2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
 				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
-				2B4665091A49345E00925448 /* SecondViewController.swift in Sources */,
+				2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */,
 				2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */,
 				2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */,
 				2B4665051A49345E00925448 /* FirstViewController.swift in Sources */,

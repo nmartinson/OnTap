@@ -11,30 +11,8 @@ import UIKit
 import Alamofire
 import CoreData
 
-/******************************************************************************************
-*  Extends Alamofire library to serialize the retrieval of images
-******************************************************************************************/
-extension Alamofire.Request
-{
-    class func imageResponseSerializer() -> Serializer{
-        return { request, response, data in
-            if( data == nil) {
-                return (nil,nil)
-            }
-            let image = UIImage(data: data!, scale: UIScreen.mainScreen().scale)
-            
-            return (image, nil)
-        }
-    }
-    
-    func responseImage(completionHandler: (NSURLRequest, NSHTTPURLResponse?, UIImage?, NSError?) -> Void) -> Self{
-        return response(serializer: Request.imageResponseSerializer(), completionHandler: { (request, response, image, error) in
-            completionHandler(request, response, image as? UIImage, error)
-        })
-    }
-}
 
-class CodeViewController: UIViewController
+class CodeViewController: UIViewController, UIScrollViewDelegate
 {
     var request: Alamofire.Request?
     @IBOutlet weak var labelImage: UIImageView!
@@ -45,9 +23,14 @@ class CodeViewController: UIViewController
     @IBOutlet weak var name: UITextView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var styleDescriptionText: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var codeStr:String = ""
     var nameStr:String = ""
     var inventoryItems = [Inventory]()
+    var fromOnTap = false
+    var fromSearch = false
+    var image = ""
+    var id = ""
     
     // Used for Core Data functionality
     lazy var managedObjectContext : NSManagedObjectContext? = {
@@ -59,28 +42,86 @@ class CodeViewController: UIViewController
             return nil
         }
         }()
+
+    /******************************************************************************************
+    *   Prevents the scrollview from horizontal scrolling
+    ******************************************************************************************/
+    func scrollViewDidScroll(scrollView: UIScrollView)
+    {
+        scrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y)
+    }
     
-    override func viewDidLoad()
+    override func viewWillAppear(animated: Bool)
     {
         var item = ""
-
-        var url = "http://www.outpan.com/api/get-product.php?barcode=\(codeStr)&apikey=3a3657604cc7b7f103cfce13c9c01839"
-        Alamofire.request(.GET, url, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-            let json = JSON(data!)
-            let name = json["name"].stringValue
-
-            if(name == "")
-            {
-                println("NOT VALID")
-                self.doSegue()
-            }
-            else
-            {
-                self.callBreweryDB(name)
+        image = ""
+        
+        if !fromOnTap && !fromSearch
+        {
+            println("not from ontap or search")
+            var url = "http://www.outpan.com/api/get-product.php?barcode=\(codeStr)&apikey=3a3657604cc7b7f103cfce13c9c01839"
+            Alamofire.request(.GET, url, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
+                let json = JSON(data!)
+                let name = json["name"].stringValue
+                
+                if(name == "")
+                {
+                    self.doSegue()
+                }
+                else
+                {
+                    self.callBreweryDB(name)
+                }
             }
         }
-        let (success, num, newItem) = fetchLog()
+        else
+        {
+            searchByID(id)
+            self.onTapText.text = "On tap: 0"
+        }
+        let (success, num, newItem) = fetchLog("id")
         onTapText.text = "On tap: \(num)"
+    }
+    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
+    func searchByID(id: String)
+    {
+        var brewURL = "http://api.brewerydb.com/v2/beers?ids=\(id)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
+        Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
+            let json = JSON(data!)
+            let totalResults = json["totalResults"].intValue
+            
+            if totalResults > 0
+            {
+                let description = json["data"][0]["description"].stringValue
+                let styleDescription = json["data"][0]["style"]["description"].stringValue
+                let abv = json["data"][0]["abv"].floatValue
+                let ibu = json["data"][0]["ibu"].floatValue
+                var name = json["data"][0]["name"].stringValue
+                var imageStr = json["data"][0]["labels"]["medium"].stringValue
+                if imageStr == ""
+                {
+                    imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
+                }
+                self.nameStr = name
+                self.image = imageStr
+                self.name.text = "Name: \(name)"
+                self.abvText.text = "ABV: \(abv)%"
+                self.ibuText.text = "IBU: \(ibu)"
+                self.descriptionText.text = description
+                self.styleDescriptionText.text = styleDescription
+                
+                Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
+                    if error == nil && image != nil{
+                        self.labelImage.image = image
+                    }
+                })
+
+            }
+        }
+        
     }
     
     /******************************************************************************************
@@ -91,25 +132,32 @@ class CodeViewController: UIViewController
         var item = name
         item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
         
-        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&ids=1&key=dacc2d3e348d431bbe07adca89ac2113"
+        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-//            println(data!)
+            println(data!)
             let json = JSON(data!)
             let description = json["data"][0]["description"].stringValue
             let styleDescription = json["data"][0]["style"]["description"].stringValue
             let name = json["data"][0]["name"].stringValue
             let abv = json["data"][0]["abv"].floatValue
             let ibu = json["data"][0]["ibu"].floatValue
-            let image = json["data"][0]["labels"]["medium"].stringValue
-            
+            var imageStr = json["data"][0]["labels"]["medium"].stringValue
+            var idStr = json["data"][0]["id"].stringValue
+            println("ImageStr \(imageStr)")
+            if imageStr == ""
+            {
+                imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
+            }
+            self.image = imageStr
             self.nameStr = name
+            self.id = idStr
             self.name.text = "Name: \(name)"
             self.abvText.text = "ABV: \(abv)%"
             self.ibuText.text = "IBU: \(ibu)"
             self.descriptionText.text = description
             self.styleDescriptionText.text = styleDescription
             
-            Alamofire.request(.GET,image).responseImage({ (request, _, image, error) -> Void in
+            Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
                 if error == nil && image != nil{
                     self.labelImage.image = image
                 }
@@ -117,6 +165,17 @@ class CodeViewController: UIViewController
         }
 
     }
+
+//    func setBeerLabels(data: NSDictionary)
+//    {
+//        self.nameStr = name
+//        self.name.text = "Name: \(name)"
+//        self.abvText.text = "ABV: \(abv)%"
+//        self.ibuText.text = "IBU: \(ibu)"
+//        self.descriptionText.text = description
+//        self.styleDescriptionText.text = styleDescription
+//
+//    }
     
     /******************************************************************************************
     *   Gets called when the add button is pressed. It is used for adding or removing beers
@@ -127,7 +186,7 @@ class CodeViewController: UIViewController
         addField.resignFirstResponder()
 
         var input = addField.text.toInt()!
-        let (success, number, item) = fetchLog()
+        let (success, number, item) = fetchLog("barcode")
         if success
         {
             var num = addToTap(item!,oldAmount: number)
@@ -135,7 +194,7 @@ class CodeViewController: UIViewController
         }
         else
         {
-            var newItem = createInManagedObjectContext(self.managedObjectContext!, name: nameStr, amount: input, barcode: codeStr)
+            var newItem = createInManagedObjectContext(self.managedObjectContext!, name: nameStr, amount: input, barcode: codeStr, id: id, image: image)
             onTapText.text = "On tap: \(newItem.amount.stringValue)"
         }
     }
@@ -160,14 +219,22 @@ class CodeViewController: UIViewController
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func fetchLog() -> (Bool, Int, Inventory?)
+    func fetchLog(searchBy: String) -> (Bool, Int, Inventory?)
     {
         let fetchRequest = NSFetchRequest(entityName: "Inventory")
-        
         let sortDescriptor = NSSortDescriptor(key: "barcode", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        let predicate = NSPredicate(format: "barcode == %@", codeStr)
-        fetchRequest.predicate = predicate
+        switch(searchBy)
+        {
+            case "barcode":
+                let predicate = NSPredicate(format: "barcode == %@", codeStr)
+                fetchRequest.predicate = predicate
+            case "id":
+                let predicate = NSPredicate(format: "id == %@", id)
+                fetchRequest.predicate = predicate
+            default:
+                return (false, 0, nil)
+        }
         
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Inventory] {
             if fetchResults.count > 0
@@ -176,10 +243,7 @@ class CodeViewController: UIViewController
                 return (true, Int(inventoryItems[0].amount), inventoryItems[0])
             }
         }
-
-        println("MO LOG")
         return (false, 0, nil)
-        
     }
     
     /******************************************************************************************
@@ -187,8 +251,6 @@ class CodeViewController: UIViewController
     ******************************************************************************************/
     func addToTap(newItem: Inventory, oldAmount: Int) -> Int
     {
-        newItem.name = nameStr
-        newItem.barcode = codeStr
         newItem.amount = oldAmount + addField.text.toInt()!
         
         var error: NSError? = nil
@@ -256,11 +318,14 @@ class CodeViewController: UIViewController
     }
     
     
-    func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, amount: Int, barcode: String) -> Inventory {
+    func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, amount: Int, barcode: String, id: String, image: String) -> Inventory
+    {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Inventory", inManagedObjectContext: moc) as Inventory
         newItem.name = name
         newItem.amount = amount
         newItem.barcode = barcode
+        newItem.image = image
+        newItem.id  = id
         
         var error: NSError? = nil
         if !self.managedObjectContext!.save(&error)
