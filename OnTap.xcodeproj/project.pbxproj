@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EAAF61A4E0C150083CC69 /* SearchViewController.swift */; };
 		2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EAAF91A4E2F660083CC69 /* BreweryDBapi.swift */; };
+		2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B29F41C1A54932300B16E1D /* AddBeerController.swift */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -23,7 +24,6 @@
 		2B46650B1A49345E00925448 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665041A49345E00925448 /* ViewController.swift */; };
 		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4665341A49356B00925448 /* Alamofire.framework */; };
-		2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665481A4A6F4B00925448 /* AddBeerController.swift */; };
 		2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3B0A61A548F7400C6014D /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +74,7 @@
 /* Begin PBXFileReference section */
 		2B0EAAF61A4E0C150083CC69 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2B0EAAF91A4E2F660083CC69 /* BreweryDBapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDBapi.swift; sourceTree = "<group>"; };
+		2B29F41C1A54932300B16E1D /* AddBeerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeerController.swift; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		2B4665041A49345E00925448 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		2B4665481A4A6F4B00925448 /* AddBeerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerController.swift; path = ../../OnTap2/OnTap/AddBeerController.swift; sourceTree = "<group>"; };
 		2BD3B0A61A548F7400C6014D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +150,7 @@
 				2B4665031A49345E00925448 /* SwiftyJSON.swift */,
 				2B4665041A49345E00925448 /* ViewController.swift */,
 				2B4664FB1A49344B00925448 /* CodeViewController.swift */,
-				2B4665481A4A6F4B00925448 /* AddBeerController.swift */,
+				2B29F41C1A54932300B16E1D /* AddBeerController.swift */,
 				2B4664E01A4932FC00925448 /* Images.xcassets */,
 				2B4664E21A4932FC00925448 /* LaunchScreen.xib */,
 				2B4664D41A4932FC00925448 /* Supporting Files */,
@@ -319,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */,
+				2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */,
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
 				2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
@@ -327,7 +328,6 @@
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
 				2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */,
 				2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */,
-				2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */,
 				2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */,
 				2B4665051A49345E00925448 /* FirstViewController.swift in Sources */,
 			);
