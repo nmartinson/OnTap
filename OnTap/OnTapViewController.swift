@@ -10,28 +10,9 @@ import CoreData
 import UIKit
 import Alamofire
 
-extension Alamofire.Request
-{
-    class func imageResponseSerializer() -> Serializer{
-        return { request, response, data in
-            if( data == nil) {
-                return (nil,nil)
-            }
-            let image = UIImage(data: data!, scale: UIScreen.mainScreen().scale)
-            
-            return (image, nil)
-        }
-    }
-    
-    func responseImage(completionHandler: (NSURLRequest, NSHTTPURLResponse?, UIImage?, NSError?) -> Void) -> Self{
-        return response(serializer: Request.imageResponseSerializer(), completionHandler: { (request, response, image, error) in
-            completionHandler(request, response, image as? UIImage, error)
-        })
-    }
-}
-
 class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate
 {
+    var request: Alamofire.Request?
     var itemsOnTap = [String:[NSArray]]() //= [ "On Tap":, "Past Brews":  ]
     var onTap:[[NSObject]] = []
     var pastItems:[[NSObject]] = []
@@ -65,19 +46,10 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         {
             for(var i = 0; i < items?.count; i++)
             {
-                
-                
-                
-                
                 if (items![i].amount as Int) > 0
                 {
                     if let success = itemsOnTap["On Tap"]
                     {
-                        Alamofire.request(.GET,items![i].image).responseImage({ (request, _, image, error) -> Void in
-                            if error == nil && image != nil{
-                                
-                            }
-                        })
                         itemsOnTap["On Tap"]!.append([items![i].name, items![i].amount, items![i].barcode, items![i].image, items![i].id])
                     }
                     else
@@ -97,6 +69,17 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                 }
             }
+            
+//            for(var i = 0; i < items?.count; i++)
+//            {
+//                Alamofire.request(.GET,items![i].image).responseImage({ (request, _, image, error) -> Void in
+//                    if error == nil && image != nil{
+//                        var item = self.itemsOnTap["On Tap"]
+//                        item[i]
+//                    }
+//                })
+//            }
+            
             tableView.reloadData()
         }
     }
@@ -160,6 +143,13 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         })
         
+//        BreweryDBapi().getLabelImage(image!) {
+//            (newImage: UIImage) in
+//            var myImage = newImage
+//            println(myImage)
+//            cell.imageView?.image = myImage
+//        }
+
         cell.textLabel?.text = beer[0] as? String
         cell.detailTextLabel?.text = beer[1] as? String
         

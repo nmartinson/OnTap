@@ -19,7 +19,6 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var abvText: UITextView!
     @IBOutlet weak var ibuText: UITextView!
     @IBOutlet weak var onTapText: UITextView!
-    @IBOutlet weak var addField: UITextField!
     @IBOutlet weak var name: UITextView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var styleDescriptionText: UITextView!
@@ -53,75 +52,70 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     
     override func viewWillAppear(animated: Bool)
     {
-        var item = ""
         image = ""
-        
+
         if !fromOnTap && !fromSearch
         {
-            println("not from ontap or search")
             var url = "http://www.outpan.com/api/get-product.php?barcode=\(codeStr)&apikey=3a3657604cc7b7f103cfce13c9c01839"
             Alamofire.request(.GET, url, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
                 let json = JSON(data!)
                 let name = json["name"].stringValue
-                
                 if(name == "")
                 {
                     self.doSegue()
                 }
                 else
                 {
+//                    BreweryDBapi().searchByName(name) {
+//                        (result: Dictionary<String,AnyObject>?) in
+//                        println(result)
+//                        self.setBeerLabels(result!)
+//                    }
                     self.callBreweryDB(name)
                 }
             }
         }
         else
         {
-            searchByID(id)
+            // retrieves the beer information and sets the labels in the view
+            BreweryDBapi().searchByID(id) {
+                (result: Dictionary<String,AnyObject>?) in
+                self.setBeerLabels(result!)
+                self.image = result!["imageStr"] as String
+                self.getLabelImage(self.image)
+            }
             self.onTapText.text = "On tap: 0"
         }
         let (success, num, newItem) = fetchLog("id")
         onTapText.text = "On tap: \(num)"
     }
     
+    func setBeerLabels(data: NSDictionary)
+    {
+        self.nameStr = data["name"] as String
+        var ibu = data["ibu"] as Float
+        var abv = data["abv"] as Float
+        var description = data["description"] as String
+        var styleDescription = data["styleDescription"] as String
+        self.image = data["imageStr"] as String
+        
+        self.name.text = "Name: \(nameStr)"
+        self.abvText.text = "ABV: \(abv)%"
+        self.ibuText.text = "IBU: \(ibu)"
+        self.descriptionText.text = description
+        self.styleDescriptionText.text = styleDescription
+    }
+    
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func searchByID(id: String)
+    func getLabelImage(imageStr: String)
     {
-        var brewURL = "http://api.brewerydb.com/v2/beers?ids=\(id)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
-        Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-            let json = JSON(data!)
-            let totalResults = json["totalResults"].intValue
-            
-            if totalResults > 0
-            {
-                let description = json["data"][0]["description"].stringValue
-                let styleDescription = json["data"][0]["style"]["description"].stringValue
-                let abv = json["data"][0]["abv"].floatValue
-                let ibu = json["data"][0]["ibu"].floatValue
-                var name = json["data"][0]["name"].stringValue
-                var imageStr = json["data"][0]["labels"]["medium"].stringValue
-                if imageStr == ""
-                {
-                    imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
-                }
-                self.nameStr = name
-                self.image = imageStr
-                self.name.text = "Name: \(name)"
-                self.abvText.text = "ABV: \(abv)%"
-                self.ibuText.text = "IBU: \(ibu)"
-                self.descriptionText.text = description
-                self.styleDescriptionText.text = styleDescription
-                
-                Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
-                    if error == nil && image != nil{
-                        self.labelImage.image = image
-                    }
-                })
-
+        Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
+            if error == nil && image != nil{
+                self.labelImage.image = image
             }
-        }
-        
+        })
     }
     
     /******************************************************************************************
@@ -134,7 +128,6 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         
         var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-            println(data!)
             let json = JSON(data!)
             let description = json["data"][0]["description"].stringValue
             let styleDescription = json["data"][0]["style"]["description"].stringValue
@@ -143,7 +136,7 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
             let ibu = json["data"][0]["ibu"].floatValue
             var imageStr = json["data"][0]["labels"]["medium"].stringValue
             var idStr = json["data"][0]["id"].stringValue
-            println("ImageStr \(imageStr)")
+
             if imageStr == ""
             {
                 imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
@@ -166,38 +159,31 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
 
     }
 
-//    func setBeerLabels(data: NSDictionary)
-//    {
-//        self.nameStr = name
-//        self.name.text = "Name: \(name)"
-//        self.abvText.text = "ABV: \(abv)%"
-//        self.ibuText.text = "IBU: \(ibu)"
-//        self.descriptionText.text = description
-//        self.styleDescriptionText.text = styleDescription
-//
-//    }
     
     /******************************************************************************************
     *   Gets called when the add button is pressed. It is used for adding or removing beers
     *   from the On Tap list
     ******************************************************************************************/
-    @IBAction func addButton(sender: AnyObject)
-    {
-        addField.resignFirstResponder()
-
-        var input = addField.text.toInt()!
-        let (success, number, item) = fetchLog("barcode")
-        if success
-        {
-            var num = addToTap(item!,oldAmount: number)
-            onTapText.text = "On tap: \(num)"
-        }
-        else
-        {
-            var newItem = createInManagedObjectContext(self.managedObjectContext!, name: nameStr, amount: input, barcode: codeStr, id: id, image: image)
-            onTapText.text = "On tap: \(newItem.amount.stringValue)"
-        }
-    }
+//    @IBAction func addButton(sender: AnyObject)
+//    {
+//        addField.resignFirstResponder()
+//        
+//        if addField.text != ""
+//        {
+//            var input = addField.text.toInt()!
+//            let (success, number, item) = fetchLog("id")
+//            if success
+//            {
+//                var num = addToTap(item!,oldAmount: number)
+//                onTapText.text = "On tap: \(num)"
+//            }
+//            else
+//            {
+//                var newItem = createInManagedObjectContext(self.managedObjectContext!, name: nameStr, amount: input, barcode: codeStr, id: id, image: image)
+//                onTapText.text = "On tap: \(newItem.amount.stringValue)"
+//            }
+//        }
+//    }
     
     /******************************************************************************************
     *
@@ -206,7 +192,6 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     {
         let fetchRequest = NSFetchRequest(entityName: "Inventory")
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Inventory] {
-            println("Count \(fetchResults.count)")
             if fetchResults.count > 0
             {
                 var num = fetchResults[0].barcode
@@ -249,9 +234,9 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func addToTap(newItem: Inventory, oldAmount: Int) -> Int
+    func addToTap(newItem: Inventory, oldAmount: Int, newAmount: Int) -> Int
     {
-        newItem.amount = oldAmount + addField.text.toInt()!
+        newItem.amount = oldAmount + newAmount
         
         var error: NSError? = nil
         if !self.managedObjectContext!.save(&error)
@@ -305,19 +290,18 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     ******************************************************************************************/
     func presentItemInfo()
     {
-        println("present Item")
         let fetchRequest = NSFetchRequest(entityName: "Inventory")
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Inventory] {
             if(!fetchResults.isEmpty)
             {
-//                println(fetchResults[0].name)
-                println(fetchResults[0].amount)
                 onTapText.text = "On Tap: \(fetchResults[0].amount)"
             }
         }
     }
     
-    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, amount: Int, barcode: String, id: String, image: String) -> Inventory
     {
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("Inventory", inManagedObjectContext: moc) as Inventory
@@ -336,5 +320,76 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         
         return newItem
     }
+    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
+    @IBAction func changeOnTapPressed(sender: AnyObject)
+    {
+        let alertController = UIAlertController(title: "Modify Inventory", message: "Add or remove from tap", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){ void in
+            
+        }
+        let addAction = UIAlertAction(title: "Add", style: .Default){ void in
+            
+            var text = (alertController.textFields![0] as UITextField).text
+            
+            if text != ""
+            {
+                var input = text.toInt()!
+                let (success, number, item) = self.fetchLog("id")
+                if success
+                {
+                    var num = self.addToTap(item!,oldAmount: number, newAmount: input)
+                    self.onTapText.text = "On tap: \(num)"
+                }
+                else
+                {
+                    var newItem = self.createInManagedObjectContext(self.managedObjectContext!, name: self.nameStr, amount: input, barcode: self.codeStr, id: self.id, image: self.image)
+                    self.onTapText.text = "On tap: \(newItem.amount.stringValue)"
+                }
+            }
+        }
+        let removeAction = UIAlertAction(title: "Remove", style: .Destructive){ void in
+            var text = (alertController.textFields![0] as UITextField).text
+            
+            if text != ""
+            {
+                var input = text.toInt()!
+                let (success, number, item) = self.fetchLog("id")
+                if success
+                {
+                    var num = self.addToTap(item!,oldAmount: number, newAmount: -input)
+                    self.onTapText.text = "On tap: \(num)"
+                }
+                else
+                {
+                    var newItem = self.createInManagedObjectContext(self.managedObjectContext!, name: self.nameStr, amount: input, barcode: self.codeStr, id: self.id, image: self.image)
+                    self.onTapText.text = "On tap: \(newItem.amount.stringValue)"
+                }
+            }
+        }
+        alertController.addAction(addAction)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        alertController.addTextFieldWithConfigurationHandler{ (textField) in
+            textField.placeholder = "0"
+        }
+        self.presentViewController(alertController, animated: true){
+            
+        }
+    }
+
+    
+    
+    @IBAction func notesPressed(sender: AnyObject)
+    {
+        
+    }
+    
+    
+    
+    
+
     
 } 

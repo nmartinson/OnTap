@@ -16,4 +16,5 @@ class Inventory: NSManagedObject {
     @NSManaged var barcode: String
     @NSManaged var image: String
     @NSManaged var id: String
+    @NSManaged var notes: String
 }

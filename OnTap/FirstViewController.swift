@@ -33,6 +33,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         var error:NSErrorPointer = nil
         videoInput = AVCaptureDeviceInput.deviceInputWithDevice(videoCaptureDevice, error: error) as AVCaptureDeviceInput
+        AVCaptureVideoOrientation.Portrait
         if(mCaptureSession.canAddInput(videoInput as AVCaptureInput))
         {
             mCaptureSession.addInput(videoInput as AVCaptureInput)
@@ -113,6 +114,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             mCaptureSession.stopRunning()
         }
     }
+
     
 }
 

@@ -6,8 +6,9 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Inventory" positionX="-45" positionY="0" width="128" height="120"/>
+        <element name="Inventory" positionX="-45" positionY="0" width="128" height="135"/>
     </elements>
 </model>

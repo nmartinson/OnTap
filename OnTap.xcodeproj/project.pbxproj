@@ -24,6 +24,7 @@
 		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4665341A49356B00925448 /* Alamofire.framework */; };
 		2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4665481A4A6F4B00925448 /* AddBeerController.swift */; };
+		2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3B0A61A548F7400C6014D /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		2B4665481A4A6F4B00925448 /* AddBeerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerController.swift; path = ../../OnTap2/OnTap/AddBeerController.swift; sourceTree = "<group>"; };
+		2BD3B0A61A548F7400C6014D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
 				2B4664FF1A49345E00925448 /* Main.storyboard */,
+				2BD3B0A61A548F7400C6014D /* NotesViewController.swift */,
 				2B4665001A49345E00925448 /* OnTap.xcdatamodeld */,
 				2B4665021A49345E00925448 /* OnTapViewController.swift */,
 				2B0EAAF61A4E0C150083CC69 /* SearchViewController.swift */,
@@ -323,6 +326,7 @@
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
 				2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */,
+				2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */,
 				2B4665491A4A6F4B00925448 /* AddBeerController.swift in Sources */,
 				2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */,
 				2B4665051A49345E00925448 /* FirstViewController.swift in Sources */,
