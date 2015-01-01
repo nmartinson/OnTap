@@ -25,6 +25,7 @@
 		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4665341A49356B00925448 /* Alamofire.framework */; };
 		2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3B0A61A548F7400C6014D /* NotesViewController.swift */; };
+		2BF8BC771A56109D00B287FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8BC761A56109D00B287FF /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		2BD3B0A61A548F7400C6014D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		2BF8BC761A56109D00B287FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */,
+				2BF8BC771A56109D00B287FF /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +121,7 @@
 		2B4664C81A4932FC00925448 = {
 			isa = PBXGroup;
 			children = (
+				2BF8BC761A56109D00B287FF /* FacebookSDK.framework */,
 				2B4665341A49356B00925448 /* Alamofire.framework */,
 				2B4664D31A4932FC00925448 /* OnTap */,
 				2B4664EC1A4932FC00925448 /* OnTapTests */,
@@ -455,6 +459,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					/Users/nickmartinson/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -471,6 +477,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+					/Users/nickmartinson/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
