@@ -16,6 +16,10 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
 {
     var request: Alamofire.Request?
     @IBOutlet weak var labelImage: UIImageView!
+    
+    
+    
+//    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var abvText: UITextView!
     @IBOutlet weak var ibuText: UITextView!
     @IBOutlet weak var onTapText: UITextView!
@@ -52,6 +56,11 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     
     override func viewWillAppear(animated: Bool)
     {
+        var navBar = UINavigationBar()
+        self.title = "Details"
+        let navButton = UIBarButtonItem(title: "On Tap", style: .Plain, target: self, action: Selector("changeOnTapPressed"))
+        navigationItem.rightBarButtonItem = navButton
+        self.view.addSubview(navBar)
         image = ""
 
         if !fromOnTap && !fromSearch
@@ -123,19 +132,25 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     ******************************************************************************************/
     func callBreweryDB(name: String)
     {
+        var index = 0
         var item = name
         item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
         
         var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
             let json = JSON(data!)
-            let description = json["data"][0]["description"].stringValue
-            let styleDescription = json["data"][0]["style"]["description"].stringValue
-            let name = json["data"][0]["name"].stringValue
-            let abv = json["data"][0]["abv"].floatValue
-            let ibu = json["data"][0]["ibu"].floatValue
-            var imageStr = json["data"][0]["labels"]["medium"].stringValue
-            var idStr = json["data"][0]["id"].stringValue
+            var description = json["data"][index]["description"].stringValue
+            if description == ""
+            {
+                index = 1
+                description = json["data"][index]["description"].stringValue
+            }
+            let styleDescription = json["data"][index]["style"]["description"].stringValue
+            let name = json["data"][index]["name"].stringValue
+            let abv = json["data"][index]["abv"].floatValue
+            let ibu = json["data"][index]["ibu"].floatValue
+            var imageStr = json["data"][index]["labels"]["medium"].stringValue
+            var idStr = json["data"][index]["id"].stringValue
 
             if imageStr == ""
             {
@@ -324,7 +339,7 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     /******************************************************************************************
     *
     ******************************************************************************************/
-    @IBAction func changeOnTapPressed(sender: AnyObject)
+    func changeOnTapPressed()
     {
         let alertController = UIAlertController(title: "Modify Inventory", message: "Add or remove from tap", preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){ void in

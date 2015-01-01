@@ -37,7 +37,7 @@ class AddBeerController: UIViewController
             
             Alamofire.request(.GET, url, parameters: nil).responseJSON{ (_,_, data, _) -> Void in }
             dismissViewControllerAnimated(true, completion: { () -> Void in
-                CodeViewController().callBreweryDB(name)
+//                CodeViewController().callBreweryDB(name)
             })
         }
         else

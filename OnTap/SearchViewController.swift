@@ -19,6 +19,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var id = ""
     var beersReturned:[[NSObject]] = []
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Beer Search"
+    }
     /******************************************************************************************
     *
     ******************************************************************************************/
@@ -102,10 +107,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     {
         if segue.identifier == "fromSearch"
         {
-            var controller = segue.destinationViewController as CodeViewController
-            controller.fromSearch = true
+            var navController = segue.destinationViewController as UINavigationController
+            var codeController = navController.viewControllers.first as CodeViewController
+            codeController.fromSearch = true
+            codeController.id = self.id
             
-            controller.id = self.id
+            
+//            var controller = segue.destinationViewController as CodeViewController
+//            controller.fromSearch = true
+//            controller.id = self.id
         }
     }
 }

@@ -38,6 +38,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
+        self.title = "On Tap"
 
         itemsOnTap.removeAll(keepCapacity: false)
         var (success, items) = fetchLog()

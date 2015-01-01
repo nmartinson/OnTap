@@ -28,6 +28,8 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Scan Barcode"
         // Do any additional setup after loading the view, typically from a nib.
         mCaptureSession = AVCaptureSession()
         videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
