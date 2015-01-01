@@ -41,7 +41,7 @@ class BreweryDBapi
         var brewURL = "http://api.brewerydb.com/v2/beers?ids=\(id)&type=beer&p=1&withBreweries=Y&key=dacc2d3e348d431bbe07adca89ac2113"
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
             let json = JSON(data!)
-            println(data)
+//            println(data)
             let totalResults = json["totalResults"].intValue
             
             if totalResults > 0
@@ -90,9 +90,9 @@ class BreweryDBapi
         item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
         
         var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
-        println(brewURL)
+//        println(brewURL)
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-            println(data)
+//            println(data)
             let json = JSON(data!)
             let description = json["data"][0]["description"].stringValue
             let styleDescription = json["data"][0]["style"]["description"].stringValue

@@ -54,7 +54,7 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         scrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y)
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewDidLoad()
     {
         var navBar = UINavigationBar()
         self.title = "Details"
@@ -62,7 +62,7 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         navigationItem.rightBarButtonItem = navButton
         self.view.addSubview(navBar)
         image = ""
-
+        
         if !fromOnTap && !fromSearch
         {
             var url = "http://www.outpan.com/api/get-product.php?barcode=\(codeStr)&apikey=3a3657604cc7b7f103cfce13c9c01839"
@@ -75,11 +75,11 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
                 }
                 else
                 {
-//                    BreweryDBapi().searchByName(name) {
-//                        (result: Dictionary<String,AnyObject>?) in
-//                        println(result)
-//                        self.setBeerLabels(result!)
-//                    }
+                    //                    BreweryDBapi().searchByName(name) {
+                    //                        (result: Dictionary<String,AnyObject>?) in
+                    //                        println(result)
+                    //                        self.setBeerLabels(result!)
+                    //                    }
                     self.callBreweryDB(name)
                 }
             }

@@ -107,15 +107,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     {
         if segue.identifier == "fromSearch"
         {
-            var navController = segue.destinationViewController as UINavigationController
-            var codeController = navController.viewControllers.first as CodeViewController
-            codeController.fromSearch = true
-            codeController.id = self.id
+//            var navController = segue.destinationViewController as UINavigationController
+//            var codeController = navController.viewControllers.first as CodeViewController
+//            codeController.fromSearch = true
+//            codeController.id = self.id
             
             
-//            var controller = segue.destinationViewController as CodeViewController
-//            controller.fromSearch = true
-//            controller.id = self.id
+            var controller = segue.destinationViewController as CodeViewController
+            controller.fromSearch = true
+            controller.id = self.id
         }
     }
 }
