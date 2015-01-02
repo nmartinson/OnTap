@@ -96,6 +96,7 @@
 		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		2BD3B0A61A548F7400C6014D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		2BF8BC761A56109D00B287FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		2BF8BC7C1A571C6800B287FF /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				2B4664D61A4932FC00925448 /* AppDelegate.swift */,
+				2BF8BC7C1A571C6800B287FF /* Bridge-Header.h */,
 				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
 				2B4664FF1A49345E00925448 /* Main.storyboard */,
@@ -465,7 +467,7 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/Bridge-Header.h";
 			};
 			name = Debug;
 		};
@@ -483,7 +485,7 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/Bridge-Header.h";
 			};
 			name = Release;
 		};

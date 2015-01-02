@@ -12,7 +12,7 @@ import Alamofire
 import CoreData
 
 
-class CodeViewController: UIViewController, UIScrollViewDelegate
+class CodeViewController: UIViewController, UIScrollViewDelegate, FBLoginViewDelegate
 {
     var request: Alamofire.Request?
     @IBOutlet weak var labelImage: UIImageView!
@@ -27,6 +27,8 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var styleDescriptionText: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var facebook: FBLoginView!
+
     var codeStr:String = ""
     var nameStr:String = ""
     var inventoryItems = [Inventory]()
@@ -402,8 +404,18 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         
     }
     
+    func loginViewShowingLoggedOutUser(loginView: FBLoginView!)
+    {
+    }
     
-    
+    func loginViewShowingLoggedInUser(loginView: FBLoginView!)
+    {
+        var friendsRequest = FBRequest.requestForMyFriends()
+        friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+            var resultDict = result as NSDictionary
+            println("Result dic: \(resultDict)")
+        }
+    }
     
 
     
