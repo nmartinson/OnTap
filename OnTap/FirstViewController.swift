@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     var mCaptureSession:AVCaptureSession!
     var videoInput:AVCaptureDeviceInput!
     var videoCaptureDevice:AVCaptureDevice!
+    @IBOutlet weak var sidebarButton: UIBarButtonItem!
     
     
     override func viewWillAppear(animated: Bool) {
@@ -28,6 +29,9 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        sidebarButton.target = self.revealViewController()
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.title = "Scan Barcode"
         // Do any additional setup after loading the view, typically from a nib.
@@ -117,6 +121,10 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         }
     }
 
+    @IBAction func sidebarButtonPressed(sender: AnyObject)
+    {
+        revealViewController().revealToggle(sender)
+    }
     
 }
 

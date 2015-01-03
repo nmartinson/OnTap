@@ -6,8 +6,4 @@
 //  Copyright (c) 2014 Nick Martinson. All rights reserved.
 //
 
-#import "BDBeer.h"
-#import "BDBBrewery.h"
-#import "BDBErrors.h"
-#import "BDBGuild.h"
-#import "BreweryDB.h"
+#import "SWRevealViewController.h"
