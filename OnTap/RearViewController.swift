@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
-class RearViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate
+class RearViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, FBLoginViewDelegate
 {
+    @IBOutlet weak var facebookLogin:FBLoginView!
+    
     var menuItems = ["On Tap", "breweryInfo", "login"]
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -22,10 +24,12 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        tableView.cellForRowAtIndexPath(indexPath)?.highlighted = false
+        tableView.cellForRowAtIndexPath(indexPath)?.selected = false
         switch(indexPath.row)
         {
         case 1:
-            tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text = "Show brewery info: Yes"
+            breweryInfoSelected(tableView, index: indexPath)
         case 2:
             var i = 0
         case 3:
@@ -40,6 +44,35 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         return menuItems.count
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func loginViewShowingLoggedOutUser(loginView: FBLoginView!)
+    {
     }
+    
+    func loginViewShowingLoggedInUser(loginView: FBLoginView!)
+    {
+        var friendsRequest = FBRequest.requestForMyFriends()
+        friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+            var resultDict = result as NSDictionary
+            println("Result dic: \(resultDict)")
+        }
+    }
+
+    func breweryInfoSelected(selectedTableView: UITableView, index: NSIndexPath)
+    {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var infoToggle = defaults.boolForKey("breweryInfo")
+        infoToggle = !infoToggle
+        defaults.setBool(infoToggle, forKey: "breweryInfo")
+        
+        if infoToggle
+        {
+            selectedTableView.cellForRowAtIndexPath(index)?.textLabel?.text = "Show brewery info: Yes"
+        }
+        else
+        {
+            selectedTableView.cellForRowAtIndexPath(index)?.textLabel?.text = "Show brewery info: No"
+        }
+    }
+    
+    
 }

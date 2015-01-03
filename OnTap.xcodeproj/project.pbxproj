@@ -25,7 +25,11 @@
 		2B4665331A49355C00925448 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B46652D1A49354700925448 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4665341A49356B00925448 /* Alamofire.framework */; };
 		2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3B0A61A548F7400C6014D /* NotesViewController.swift */; };
-		2BF8BC771A56109D00B287FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8BC761A56109D00B287FF /* FacebookSDK.framework */; };
+		2BF8BCBD1A575BB500B287FF /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBB1A575BB500B287FF /* menu.png */; };
+		2BF8BCBE1A575BB500B287FF /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBC1A575BB500B287FF /* menu@2x.png */; };
+		2BF8BCC01A57668D00B287FF /* RearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBF1A57668D00B287FF /* RearViewController.swift */; };
+		2BF8BCC31A576AA900B287FF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8BCC21A576AA900B287FF /* SWRevealViewController.m */; };
+		2BF8BCCA1A5777F900B287FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8BCC91A5777F900B287FF /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +99,13 @@
 		2B4665271A49354700925448 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2B4665341A49356B00925448 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		2BD3B0A61A548F7400C6014D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		2BF8BC761A56109D00B287FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		2BF8BC7C1A571C6800B287FF /* OnTap-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnTap-Bridge-Header.h"; sourceTree = "<group>"; };
+		2BF8BC7E1A574FE100B287FF /* OnTap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnTap-Bridging-Header.h"; sourceTree = "<group>"; };
+		2BF8BCBB1A575BB500B287FF /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		2BF8BCBC1A575BB500B287FF /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		2BF8BCBF1A57668D00B287FF /* RearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearViewController.swift; sourceTree = "<group>"; };
+		2BF8BCC11A576AA900B287FF /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../Libraries/SWRevealViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		2BF8BCC21A576AA900B287FF /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../Libraries/SWRevealViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		2BF8BCC91A5777F900B287FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */,
-				2BF8BC771A56109D00B287FF /* FacebookSDK.framework in Frameworks */,
+				2BF8BCCA1A5777F900B287FF /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +131,7 @@
 		2B4664C81A4932FC00925448 = {
 			isa = PBXGroup;
 			children = (
-				2BF8BC761A56109D00B287FF /* FacebookSDK.framework */,
+				2BF8BCC91A5777F900B287FF /* FacebookSDK.framework */,
 				2B4665341A49356B00925448 /* Alamofire.framework */,
 				2B4664D31A4932FC00925448 /* OnTap */,
 				2B4664EC1A4932FC00925448 /* OnTapTests */,
@@ -144,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				2B4664D61A4932FC00925448 /* AppDelegate.swift */,
-				2BF8BC7C1A571C6800B287FF /* OnTap-Bridge-Header.h */,
 				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
 				2B4664FF1A49345E00925448 /* Main.storyboard */,
@@ -494,7 +502,8 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridge-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -513,7 +522,7 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridge-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridging-Header.h";
 			};
 			name = Release;
 		};
