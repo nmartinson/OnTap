@@ -22,7 +22,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     var id = ""
     var filteredBeers = [Inventory]()
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var sidebarButton: UIBarButtonItem!
     
     // Used for Core Data functionality
     lazy var managedObjectContext : NSManagedObjectContext? = {
@@ -34,6 +34,12 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
             return nil
         }
         }()
+    
+    override func viewDidLoad()
+    {
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
     
     override func viewWillAppear(animated: Bool)
     {
@@ -201,6 +207,12 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     {
 //        self.filteredBeers = self.itemsOnTap
     }
+    
+    @IBAction func sidebarButtonPressed(sender: AnyObject)
+    {
+        revealViewController().revealToggle(sender)
+    }
+    
     
 }
 

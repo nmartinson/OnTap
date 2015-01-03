@@ -13,6 +13,7 @@ import Alamofire
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate
 {
 
+    @IBOutlet weak var sidebarButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var image = ""
@@ -23,6 +24,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Beer Search"
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     /******************************************************************************************
     *
@@ -118,4 +120,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             controller.id = self.id
         }
     }
+    
+    
+    @IBAction func sidebarButtonPressed(sender: AnyObject)
+    {
+        revealViewController().revealToggle(sender)
+    }
+    
 }
