@@ -18,20 +18,26 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     var videoCaptureDevice:AVCaptureDevice!
     @IBOutlet weak var sidebarButton: UIBarButtonItem!
     
-    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
         if(!mCaptureSession.running)
         {
             mCaptureSession.startRunning()
         }
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        sidebarButton.target = self.revealViewController()
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.title = "Scan Barcode"
         // Do any additional setup after loading the view, typically from a nib.
@@ -68,10 +74,9 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
     {
         for metadataObject in metadataObjects
@@ -103,6 +108,9 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         }
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if( segue.identifier == "CodeViewSegue")
@@ -112,6 +120,9 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         }
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         
@@ -121,6 +132,9 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         }
     }
 
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func sidebarButtonPressed(sender: AnyObject)
     {
         revealViewController().revealToggle(sender)

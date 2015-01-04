@@ -15,6 +15,9 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
     
     var menuItems = ["On Tap", "breweryInfo", "login"]
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var item = menuItems[indexPath.row]
@@ -22,6 +25,9 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.cellForRowAtIndexPath(indexPath)?.highlighted = false
@@ -39,15 +45,24 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         }
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return menuItems.count
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func loginViewShowingLoggedOutUser(loginView: FBLoginView!)
     {
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func loginViewShowingLoggedInUser(loginView: FBLoginView!)
     {
         var friendsRequest = FBRequest.requestForMyFriends()
@@ -57,6 +72,9 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         }
     }
 
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func breweryInfoSelected(selectedTableView: UITableView, index: NSIndexPath)
     {
         let defaults = NSUserDefaults.standardUserDefaults()

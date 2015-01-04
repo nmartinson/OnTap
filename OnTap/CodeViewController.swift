@@ -5,21 +5,13 @@
 //  Created by Nick Martinson on 12/22/14.
 //  Copyright (c) 2014 Nick Martinson. All rights reserved.
 //
-
 import Foundation
 import UIKit
-import Alamofire
 import CoreData
+import Alamofire
 
-
-class CodeViewController: UIViewController, UIScrollViewDelegate
+class CodeViewController: BaseInfoController
 {
-    var request: Alamofire.Request?
-    @IBOutlet weak var labelImage: UIImageView!
-    
-    
-    
-//    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var abvText: UITextView!
     @IBOutlet weak var ibuText: UITextView!
     @IBOutlet weak var onTapText: UITextView!
@@ -29,12 +21,9 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var scrollView: UIScrollView!
 
     var codeStr:String = ""
-    var nameStr:String = ""
     var inventoryItems = [Inventory]()
     var fromOnTap = false
     var fromSearch = false
-    var image = ""
-    var id = ""
     
     // Used for Core Data functionality
     lazy var managedObjectContext : NSManagedObjectContext? = {
@@ -47,14 +36,6 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         }
         }()
 
-    /******************************************************************************************
-    *   Prevents the scrollview from horizontal scrolling
-    ******************************************************************************************/
-    func scrollViewDidScroll(scrollView: UIScrollView)
-    {
-        scrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y)
-    }
-    
     override func viewDidLoad()
     {
         var navBar = UINavigationBar()
@@ -76,19 +57,17 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
                 }
                 else
                 {
-                    //                    BreweryDBapi().searchByName(name) {
-                    //                        (result: Dictionary<String,AnyObject>?) in
-                    //                        println(result)
-                    //                        self.setBeerLabels(result!)
-                    //                    }
-                    self.callBreweryDB(name)
+                    BreweryDBapi().searchBeerByName(name) {
+                        (result: Dictionary<String,AnyObject>?) in
+                        self.setBeerLabels(result!)
+                    }
                 }
             }
         }
         else
         {
             // retrieves the beer information and sets the labels in the view
-            BreweryDBapi().searchByID(id) {
+            BreweryDBapi().searchBeerByID(id) {
                 (result: Dictionary<String,AnyObject>?) in
                 self.setBeerLabels(result!)
                 self.image = result!["imageStr"] as String
@@ -109,6 +88,12 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         var styleDescription = data["styleDescription"] as String
         self.image = data["imageStr"] as String
         
+        BreweryDBapi().getLabelImage(self.image) {
+            (newImage: UIImage) in
+            var myImage = newImage
+            self.labelImage.image = myImage
+        }
+        
         self.name.text = "Name: \(nameStr)"
         self.abvText.text = "ABV: \(abv)%"
         self.ibuText.text = "IBU: \(ibu)"
@@ -116,91 +101,7 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         self.styleDescriptionText.text = styleDescription
     }
     
-    /******************************************************************************************
-    *
-    ******************************************************************************************/
-    func getLabelImage(imageStr: String)
-    {
-        Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
-            if error == nil && image != nil{
-                self.labelImage.image = image
-            }
-        })
-    }
-    
-    /******************************************************************************************
-    *
-    ******************************************************************************************/
-    func callBreweryDB(name: String)
-    {
-        var index = 0
-        var item = name
-        item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
-        
-        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
-        Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-            let json = JSON(data!)
-            var description = json["data"][index]["description"].stringValue
-            if description == ""
-            {
-                index = 1
-                description = json["data"][index]["description"].stringValue
-            }
-            let styleDescription = json["data"][index]["style"]["description"].stringValue
-            let name = json["data"][index]["name"].stringValue
-            let abv = json["data"][index]["abv"].floatValue
-            let ibu = json["data"][index]["ibu"].floatValue
-            var imageStr = json["data"][index]["labels"]["medium"].stringValue
-            var idStr = json["data"][index]["id"].stringValue
 
-            if imageStr == ""
-            {
-                imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
-            }
-            self.image = imageStr
-            self.nameStr = name
-            self.id = idStr
-            self.name.text = "Name: \(name)"
-            self.abvText.text = "ABV: \(abv)%"
-            self.ibuText.text = "IBU: \(ibu)"
-            self.descriptionText.text = description
-            self.styleDescriptionText.text = styleDescription
-            
-            Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
-                if error == nil && image != nil{
-                    self.labelImage.image = image
-                }
-            })
-        }
-
-    }
-
-    
-    /******************************************************************************************
-    *   Gets called when the add button is pressed. It is used for adding or removing beers
-    *   from the On Tap list
-    ******************************************************************************************/
-//    @IBAction func addButton(sender: AnyObject)
-//    {
-//        addField.resignFirstResponder()
-//        
-//        if addField.text != ""
-//        {
-//            var input = addField.text.toInt()!
-//            let (success, number, item) = fetchLog("id")
-//            if success
-//            {
-//                var num = addToTap(item!,oldAmount: number)
-//                onTapText.text = "On tap: \(num)"
-//            }
-//            else
-//            {
-//                var newItem = createInManagedObjectContext(self.managedObjectContext!, name: nameStr, amount: input, barcode: codeStr, id: id, image: image)
-//                onTapText.text = "On tap: \(newItem.amount.stringValue)"
-//            }
-//        }
-//    }
-    
     /******************************************************************************************
     *
     ******************************************************************************************/
@@ -271,14 +172,6 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    /******************************************************************************************
-    *
-    ******************************************************************************************/
-    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
-    {
-        textField.resignFirstResponder()
-        return true;
-    }
     
     /******************************************************************************************
     *   Gets called immediately before performing segue. 
@@ -397,7 +290,9 @@ class CodeViewController: UIViewController, UIScrollViewDelegate
     }
 
     
-    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func notesPressed(sender: AnyObject)
     {
         

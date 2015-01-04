@@ -18,12 +18,18 @@ class AddBeerController: UIViewController
     @IBOutlet weak var errorField: UILabel!
     var upc = ""
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewDidAppear(animated: Bool)
     {
         errorField.hidden = true
         println("add beer \(upc)")
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func submitButtonPressed(sender: AnyObject)
     {
         let name = self.beerNameText.text

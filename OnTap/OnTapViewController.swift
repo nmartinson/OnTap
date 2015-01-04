@@ -35,16 +35,23 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         }()
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewDidLoad()
     {
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
-    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
         self.title = "On Tap"
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
 
         itemsOnTap.removeAll(keepCapacity: false)
         var (success, items) = fetchLog()
@@ -90,13 +97,6 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
             tableView.reloadData()
         }
     }
-    
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
-
     
     /******************************************************************************************
     *
@@ -144,18 +144,17 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         var beer = sectionBeer[indexPath.row]
         var image = beer[3] as? String
         
-        Alamofire.request(.GET,image!).responseImage({ (request, _, image, error) -> Void in
-            if error == nil && image != nil{
-                cell.imageView?.image = image
-            }
-        })
+//        Alamofire.request(.GET,image!).responseImage({ (request, _, image, error) -> Void in
+//            if error == nil && image != nil{
+//                cell.imageView?.image = image
+//            }
+//        })
         
-//        BreweryDBapi().getLabelImage(image!) {
-//            (newImage: UIImage) in
-//            var myImage = newImage
-//            println(myImage)
-//            cell.imageView?.image = myImage
-//        }
+        BreweryDBapi().getLabelImage(image!) {
+            (newImage: UIImage) in
+            var myImage = newImage
+            cell.imageView?.image = myImage
+        }
 
         cell.textLabel?.text = beer[0] as? String
         cell.detailTextLabel?.text = beer[1] as? String
@@ -186,11 +185,17 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         return 2
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return tableSections[section]
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "onTapToDetail"
@@ -203,11 +208,17 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     func filterContentForSearchText(searchText: String)
     {
 //        self.filteredBeers = self.itemsOnTap
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func sidebarButtonPressed(sender: AnyObject)
     {
         revealViewController().revealToggle(sender)

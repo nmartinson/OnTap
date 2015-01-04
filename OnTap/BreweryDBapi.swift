@@ -35,13 +35,12 @@ class BreweryDBapi
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func searchByID(id: String, completion:(result: Dictionary<String,AnyObject>?) -> Void)
+    func searchBeerByID(id: String, completion:(result: Dictionary<String,AnyObject>?) -> Void)
     {
         var beerDict:Dictionary<String,AnyObject>?
         var brewURL = "http://api.brewerydb.com/v2/beers?ids=\(id)&type=beer&p=1&withBreweries=Y&key=dacc2d3e348d431bbe07adca89ac2113"
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
             let json = JSON(data!)
-//            println(data)
             let totalResults = json["totalResults"].intValue
             
             if totalResults > 0
@@ -83,16 +82,14 @@ class BreweryDBapi
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func searchByName(name: String, completion:(result: Dictionary<String,AnyObject>?) -> Void)
+    func searchBeerByName(name: String, completion:(result: Dictionary<String,AnyObject>?) -> Void)
     {
         var beerDict:Dictionary<String,AnyObject>?
         var item = name
         item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
         
         var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
-//        println(brewURL)
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-//            println(data)
             let json = JSON(data!)
             let description = json["data"][0]["description"].stringValue
             let styleDescription = json["data"][0]["style"]["description"].stringValue
@@ -115,10 +112,105 @@ class BreweryDBapi
                 imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
             }
             beerDict = ["description": description, "styleDescription": styleDescription, "abv": abv!, "ibu": ibu!, "name": name, "imageStr": imageStr, "id": idStr]
+            completion(result: beerDict)
         }
-        println(beerDict)
-        completion(result: beerDict)
     }
+    
+    
+    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
+    func searchBeersByName(name: String, completion:(result: [[NSObject]]) -> Void)
+    {
+        var beersReturned:[[NSObject]] = []
+        var item = name
+        item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
+        
+        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
+        Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
+            let json = JSON(data!)
+            let totalResults = json["totalResults"].intValue
+            for(var i = 0; i < totalResults; i++)
+            {
+                let name = json["data"][i]["name"].stringValue
+                var id = json["data"][i]["id"].stringValue
+                var image = json["data"][i]["labels"]["medium"].stringValue
+                if id != ""
+                {
+                    if image == ""
+                    {
+                        image = "http://www.brewerydb.com/img/glassware/pint_medium.png"
+                    }
+            
+                    beersReturned.append([name, id, image])
+                }
+            }
+            completion(result: beersReturned)
+        }
+    }
+    
+    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
+    func searchBreweryByName(name: String, completion:(result: [[NSObject]]) -> Void)
+    {
+        var breweriesReturned:[[NSObject]] = []
+        var item = name
+        item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
+        
+        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=brewery&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
+        Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
+            let json = JSON(data!)
+            let totalResults = json["totalResults"].intValue
+            for(var i = 0; i < totalResults; i++)
+            {
+                let id = json["data"][i]["id"].stringValue
+                let name = json["data"][i]["name"].stringValue
+                var imageStr = json["data"][i]["images"]["medium"].stringValue
+                if imageStr == ""
+                {
+                    imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
+                }
+                if name != ""
+                {
+                    breweriesReturned.append([name, id, imageStr])
+                }
+            }
+            completion(result: breweriesReturned)
+        }
+        
+    }
+    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
+    func searchBreweryByID(id: String, completion:(result: Dictionary<String,AnyObject>?) -> Void)
+    {
+        var breweryDict:Dictionary<String,AnyObject>?
+        
+        var brewURL = "http://api.brewerydb.com/v2/brewery/\(id)?key=dacc2d3e348d431bbe07adca89ac2113"
+        Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
+            let json = JSON(data!)
+            let website = json["data"]["website"].stringValue
+            var breweryDesc = json["data"]["description"].stringValue
+            breweryDesc = breweryDesc.stringByReplacingOccurrencesOfString("\n", withString: "").stringByReplacingOccurrencesOfString("\r", withString: "")
+            let breweryEstablished = json["data"]["established"].stringValue
+            var imageStr = json["data"]["images"]["medium"].stringValue
+            let breweryCountry = json["data"][0]["locations"][0]["country"]["displayName"].stringValue
+            let breweryCity = json["data"][0]["locations"][0]["locality"].stringValue
+
+            if imageStr == ""
+            {
+                imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
+            }
+            breweryDict = ["description": breweryDesc, "established": breweryEstablished, "city": breweryCity, "country": breweryCountry, "imageStr": imageStr, "website": website]
+            completion(result: breweryDict)
+        }
+        
+    }
+
  
     
     /******************************************************************************************
@@ -132,8 +224,8 @@ class BreweryDBapi
             if error == nil && image != nil{
                 labelImage = image!
             }
+            completion(newImage: labelImage)
         })
-        completion(newImage: labelImage)
     }
     
 }
