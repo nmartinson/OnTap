@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FBLoginView.self
         FBProfilePictureView.self
-
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("jFwOrSIDGvadMsi3Jmx2EcO9grn7RoQwM44rdWBf", clientKey: "DKQX2MMdCBogMgi7JWNEnP4a7d7jS6XYQenHcXcO")
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions){ void in }
+        
         return true
     }
     

@@ -68,7 +68,7 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         var friendsRequest = FBRequest.requestForMyFriends()
         friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             var resultDict = result as NSDictionary
-            println("Result dic: \(resultDict)")
+//            println("Result dic: \(resultDict)")
         }
     }
 

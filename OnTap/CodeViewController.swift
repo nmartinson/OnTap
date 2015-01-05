@@ -184,6 +184,16 @@ class CodeViewController: BaseInfoController
             var controller = segue.destinationViewController as AddBeerController
             controller.upc = codeStr
         }
+        else if segue.identifier == "toNewPost"
+        {
+            var controller = segue.destinationViewController as NewPostViewController
+            controller.beerID = self.id
+        }
+        else if segue.identifier == "toViewPost"
+        {
+            var controller = segue.destinationViewController as ViewPostViewController
+            controller.beerID = self.id
+        }
     }
     
     /******************************************************************************************

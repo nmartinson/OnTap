@@ -37,8 +37,6 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
         self.title = "Scan Barcode"
         // Do any additional setup after loading the view, typically from a nib.
         mCaptureSession = AVCaptureSession()
