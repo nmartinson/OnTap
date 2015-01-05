@@ -25,6 +25,7 @@
 		2B323D881A59CF8800FFAC19 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D871A59CF8800FFAC19 /* libsqlite3.dylib */; };
 		2B323D8B1A59DB1A00FFAC19 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D8A1A59DB1A00FFAC19 /* NewPostViewController.swift */; };
 		2B323D8D1A59E35E00FFAC19 /* ViewPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */; };
+		2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -45,7 +46,6 @@
 		2BF8BCBD1A575BB500B287FF /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBB1A575BB500B287FF /* menu.png */; };
 		2BF8BCBE1A575BB500B287FF /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBC1A575BB500B287FF /* menu@2x.png */; };
 		2BF8BCC01A57668D00B287FF /* RearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBF1A57668D00B287FF /* RearViewController.swift */; };
-		2BF8BCC31A576AA900B287FF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8BCC21A576AA900B287FF /* SWRevealViewController.m */; };
 		2BF8BCCA1A5777F900B287FF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8BCC91A5777F900B287FF /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +112,8 @@
 		2B323D871A59CF8800FFAC19 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2B323D8A1A59DB1A00FFAC19 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostsViewController.swift; sourceTree = "<group>"; };
+		2B323D911A5A20CD00FFAC19 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,8 +139,6 @@
 		2BF8BCBB1A575BB500B287FF /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		2BF8BCBC1A575BB500B287FF /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		2BF8BCBF1A57668D00B287FF /* RearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearViewController.swift; sourceTree = "<group>"; };
-		2BF8BCC11A576AA900B287FF /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../Libraries/SWRevealViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
-		2BF8BCC21A576AA900B287FF /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../Libraries/SWRevealViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		2BF8BCC91A5777F900B287FF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,8 +284,8 @@
 		2BF8BC821A57501400B287FF /* SWReveal */ = {
 			isa = PBXGroup;
 			children = (
-				2BF8BCC11A576AA900B287FF /* SWRevealViewController.h */,
-				2BF8BCC21A576AA900B287FF /* SWRevealViewController.m */,
+				2B323D911A5A20CD00FFAC19 /* SWRevealViewController.h */,
+				2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */,
 				2BF8BCBA1A575BAA00B287FF /* Images */,
 			);
 			name = SWReveal;
@@ -434,10 +434,10 @@
 				2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */,
 				2B323D8D1A59E35E00FFAC19 /* ViewPostsViewController.swift in Sources */,
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
+				2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */,
 				2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
 				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
-				2BF8BCC31A576AA900B287FF /* SWRevealViewController.m in Sources */,
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
 				2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */,
