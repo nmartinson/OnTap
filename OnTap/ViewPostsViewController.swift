@@ -14,18 +14,20 @@ class ViewPostViewController: UIViewController
 {
     var beerID = ""
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     override func viewWillAppear(animated: Bool)
     {
         var friendsRequest = FBRequest.requestForMyFriends()
         friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             if !(error != nil)
             {
-                println("result: \(result)")
                 let resultDict = result as NSDictionary
                 let data = resultDict["data"] as NSArray
                 let element = data[0] as NSDictionary
                 let id = element["id"] as String
-                println("Result dic: \(element)")
+                println("Result dic: \(data)")
             }
         }
         
@@ -50,7 +52,9 @@ class ViewPostViewController: UIViewController
         
     }
     
-    
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func backButtonPressed(sender: AnyObject)
     {
         dismissViewControllerAnimated(true, completion: { () -> Void in

@@ -14,17 +14,27 @@ class NewPostViewController: UIViewController
     @IBOutlet weak var textField: UITextView!
     var beerID = ""
     
-    override func viewWillAppear(animated: Bool) {
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
+    override func viewWillAppear(animated: Bool)
+    {
         textField.select(self)
         println(beerID)
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func cancelButtonPressed(sender: AnyObject)
     {
         dismissViewControllerAnimated(true, completion: { () -> Void in
         })
     }
     
+    /******************************************************************************************
+    *
+    ******************************************************************************************/
     @IBAction func saveButtonPressed(sender: AnyObject)
     {
         let post = textField.text
@@ -66,9 +76,6 @@ class NewPostViewController: UIViewController
         {
             println("Not logged in")
         }
-        
-        
-
     }
     
 }
