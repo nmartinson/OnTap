@@ -40,11 +40,13 @@ class ViewPostViewController: UIViewController
             var yPos:CGFloat = 85.0
             for(var i = 0; i < results.count; i++)
             {
+                let name = results[i].objectForKey("name") as String
                 let imageURL = results[i].objectForKey("imageURL") as String
                 var image = UIImageView(frame: CGRectMake(16.0, yPos, 80.0, 50.0))
                 self.getLabelImage(imageURL, newImage: image)
                 var text = UITextView(frame: CGRectMake(115.0, yPos,460.0, 50.0))
-                text.text = results[i].objectForKey("textContent") as String
+                var content = results[i].objectForKey("textContent") as String
+                text.text = "name: \(name)\n\(content)"
                 self.view.addSubview(text)
                 self.view.addSubview(image)
                 yPos += 70
