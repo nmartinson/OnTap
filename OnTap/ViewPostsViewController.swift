@@ -36,6 +36,7 @@ class ViewPostViewController: UIViewController
         postQuery.findObjectsInBackgroundWithBlock{
             (objects: [AnyObject]!, error: NSError!) -> Void in
             let results = objects as NSArray
+            println(results)
             var yPos:CGFloat = 85.0
             for(var i = 0; i < results.count; i++)
             {

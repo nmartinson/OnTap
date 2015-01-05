@@ -46,14 +46,17 @@ class NewPostViewController: UIViewController
                 {
                     let user = result as NSDictionary
                     let facebookID = result["id"] as String
+                    let name = result["name"] as String
                     let imageURL = "http://graph.facebook.com/\(facebookID)/picture?type=large"
-//                    println(user)
+                    println(user)
+                    println(name)
                     
                     var newPost = PFObject(className: "Post")
                     newPost.setObject(post, forKey: "textContent")
                     newPost.setObject(facebookID, forKey: "UID")
                     newPost.setObject(self.beerID, forKey: "beerID")
                     newPost.setObject(imageURL, forKey: "imageURL")
+                    newPost.setObject(name, forKey: "name")
 //                    newPost.setObject(PFUser.currentUser(), forKey: "postForBeer")
                     newPost.saveInBackgroundWithBlock{
                         (success: Bool, error: NSError!) -> Void in
