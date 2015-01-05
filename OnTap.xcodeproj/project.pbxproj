@@ -26,6 +26,7 @@
 		2B323D8B1A59DB1A00FFAC19 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D8A1A59DB1A00FFAC19 /* NewPostViewController.swift */; };
 		2B323D8D1A59E35E00FFAC19 /* ViewPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */; };
 		2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */; };
+		2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -114,6 +115,7 @@
 		2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostsViewController.swift; sourceTree = "<group>"; };
 		2B323D911A5A20CD00FFAC19 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerSearchController.swift; path = ../AddBeerSearchController.swift; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		2B4664D31A4932FC00925448 /* OnTap */ = {
 			isa = PBXGroup;
 			children = (
+				2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */,
 				2B4664D61A4932FC00925448 /* AppDelegate.swift */,
 				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
@@ -430,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF8BCC01A57668D00B287FF /* RearViewController.swift in Sources */,
+				2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */,
 				2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */,
 				2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */,
 				2B323D8D1A59E35E00FFAC19 /* ViewPostsViewController.swift in Sources */,

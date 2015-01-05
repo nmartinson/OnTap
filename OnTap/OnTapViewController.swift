@@ -38,14 +38,6 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     /******************************************************************************************
     *
     ******************************************************************************************/
-    override func viewDidLoad()
-    {
-//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
-    
-    /******************************************************************************************
-    *
-    ******************************************************************************************/
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
@@ -62,6 +54,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
             {
                 if (items![i].amount as Int) > 0
                 {
+                    println("id \(items![i].id)")
                     if let success = itemsOnTap["On Tap"]
                     {
                         itemsOnTap["On Tap"]!.append([items![i].name, items![i].amount, items![i].barcode, items![i].image, items![i].id])
@@ -83,16 +76,6 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
                     }
                 }
             }
-            
-//            for(var i = 0; i < items?.count; i++)
-//            {
-//                Alamofire.request(.GET,items![i].image).responseImage({ (request, _, image, error) -> Void in
-//                    if error == nil && image != nil{
-//                        var item = self.itemsOnTap["On Tap"]
-//                        item[i]
-//                    }
-//                })
-//            }
             
             tableView.reloadData()
         }

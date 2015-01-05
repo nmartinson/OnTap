@@ -36,7 +36,7 @@ class CodeViewController: BaseInfoController
         }
         }()
 
-    override func viewDidLoad()
+    override func viewWillAppear(animated: Bool)
     {
         var navBar = UINavigationBar()
         self.title = "Details"
@@ -45,22 +45,28 @@ class CodeViewController: BaseInfoController
         self.view.addSubview(navBar)
         image = ""
         
+        // Executes when no barcode was found
         if !fromOnTap && !fromSearch
         {
-            var url = "http://www.outpan.com/api/get-product.php?barcode=\(codeStr)&apikey=3a3657604cc7b7f103cfce13c9c01839"
-            Alamofire.request(.GET, url, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
-                let json = JSON(data!)
-                let name = json["name"].stringValue
-                if(name == "")
+            var postQuery = PFQuery(className: "Beer")
+            postQuery.whereKey("barcode", equalTo: codeStr)
+            postQuery.findObjectsInBackgroundWithBlock{
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                let results = objects as NSArray
+                if results.count > 0
                 {
-                    self.doSegue()
-                }
-                else
-                {
-                    BreweryDBapi().searchBeerByName(name) {
+                    let beerID = results[0].objectForKey("beerID") as String
+                    self.id = beerID
+                    BreweryDBapi().searchBeerByID(beerID) {
                         (result: Dictionary<String,AnyObject>?) in
                         self.setBeerLabels(result!)
                     }
+                    
+                }
+                else
+                {
+                    println("Nothing returned")
+                    self.doSegue()
                 }
             }
         }
@@ -181,7 +187,7 @@ class CodeViewController: BaseInfoController
     {
         if( segue.identifier == "addBeerSegue")
         {
-            var controller = segue.destinationViewController as AddBeerController
+            var controller = segue.destinationViewController as AddBeerSearchController
             controller.upc = codeStr
         }
         else if segue.identifier == "toNewPost"
@@ -255,6 +261,7 @@ class CodeViewController: BaseInfoController
             
             if text != ""
             {
+                println("add to tap id: \(self.id)")
                 var input = text.toInt()!
                 let (success, number, item) = self.fetchLog("id")
                 if success

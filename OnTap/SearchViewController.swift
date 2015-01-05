@@ -13,6 +13,7 @@ import Alamofire
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate
 {
 
+    @IBOutlet weak var statusIndicator: UIActivityIndicatorView!
     @IBOutlet weak var sidebarButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -46,6 +47,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
         if searchStr != ""
         {
+            statusIndicator.startAnimating()
             switch scopeIndex
             {
                 case 0:
@@ -53,12 +55,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                         (result: [[NSObject]]?) in
                         self.beersReturned = result!
                         self.tableView.reloadData()
+                        self.statusIndicator.stopAnimating()
                 }
                 case 1:
                     BreweryDBapi().searchBreweryByName(searchStr) {
                         (result: [[NSObject]]?) in
                         self.beersReturned = result!
                         self.tableView.reloadData()
+                        self.statusIndicator.stopAnimating()
                     }
                 default:
                     break
@@ -93,7 +97,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         {
             var name = beersReturned[indexPath.row][0] as String
             var imageStr = beersReturned[indexPath.row][2] as String
+            cell.detailTextLabel?.text = ""
+            if searchBar.selectedScopeButtonIndex == 0
+            {
+                let breweryName = beersReturned[indexPath.row][3] as String
+                cell.detailTextLabel?.text = breweryName
+            }
             cell.textLabel?.text = name
+            
             if imageStr != ""
             {
                 BreweryDBapi().getLabelImage(imageStr) {

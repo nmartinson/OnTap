@@ -127,7 +127,7 @@ class BreweryDBapi
         var item = name
         item = item.stringByReplacingOccurrencesOfString(" ", withString: "+").lowercaseString
         
-        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
+        var brewURL = "http://api.brewerydb.com/v2/search?q=\(item)&type=beer&withBreweries=Y&p=1&key=dacc2d3e348d431bbe07adca89ac2113"
         Alamofire.request(.GET, brewURL, parameters: nil).responseJSON{ (_,_, data, _) -> Void in
             let json = JSON(data!)
             let totalResults = json["totalResults"].intValue
@@ -136,6 +136,7 @@ class BreweryDBapi
                 let name = json["data"][i]["name"].stringValue
                 var id = json["data"][i]["id"].stringValue
                 var image = json["data"][i]["labels"]["medium"].stringValue
+                let breweryName = json["data"][i]["breweries"][0]["name"].stringValue
                 if id != ""
                 {
                     if image == ""
@@ -143,7 +144,7 @@ class BreweryDBapi
                         image = "http://www.brewerydb.com/img/glassware/pint_medium.png"
                     }
             
-                    beersReturned.append([name, id, image])
+                    beersReturned.append([name, id, image, breweryName])
                 }
             }
             completion(result: beersReturned)
