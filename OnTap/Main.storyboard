@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="-320"/>
+            <point key="canvasLocation" x="-258" y="-40"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="kgI-76-BtG">
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLB-9t-Qy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3968" y="-363"/>
+            <point key="canvasLocation" x="1752" y="-40"/>
         </scene>
         <!--Title-->
         <scene sceneID="u1G-Lw-ZBI">
@@ -325,128 +325,14 @@
                         <outlet property="labelImage" destination="ACq-ue-laZ" id="c7U-ef-sri"/>
                         <outlet property="name" destination="kTT-gp-ult" id="7fL-Eh-Omr"/>
                         <outlet property="onTapText" destination="SXW-vk-SjW" id="KXa-Ft-Adr"/>
-                        <outlet property="scrollView" destination="R6A-fW-l9E" id="2vw-LO-eQQ"/>
+                        <outlet property="scrollView" destination="R6A-fW-l9E" id="moh-jW-qo7"/>
                         <outlet property="styleDescriptionText" destination="iJa-jr-FcL" id="Rao-eA-ud9"/>
                         <segue destination="cHd-JQ-ON3" kind="presentation" identifier="addBeerSegue" id="hpn-sM-eZ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WeB-Gc-DiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2956" y="603"/>
-        </scene>
-        <!--Add Beer Controller-->
-        <scene sceneID="FJZ-Ef-xgl">
-            <objects>
-                <viewController id="uTb-py-5Dm" customClass="AddBeerController" customModule="OnTap" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zk1-St-pNo"/>
-                        <viewControllerLayoutGuide type="bottom" id="dvj-zK-sof"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MdO-dw-Yq5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="                    " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGX-Su-gMM">
-                                <rect key="frame" x="201" y="94" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="uTb-py-5Dm" id="1Ou-eJ-rm1"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="                    " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QbJ-Dw-P3G">
-                                <rect key="frame" x="201" y="155" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="uTb-py-5Dm" id="oOS-Un-09W"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00            " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aD3-rp-MyM">
-                                <rect key="frame" x="201" y="204" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdY-Gd-jj3">
-                                <rect key="frame" x="66" y="98" width="97" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brewer Name *" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd6-Bp-3hG">
-                                <rect key="frame" x="66" y="155" width="116" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0au-le-xUu">
-                                <rect key="frame" x="66" y="204" width="44" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help a man, add a beer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzc-Hk-M00">
-                                <rect key="frame" x="111" y="20" width="180" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A33-bw-yw0">
-                                <rect key="frame" x="129" y="267" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="uTb-py-5Dm" eventType="touchUpInside" id="zfj-ww-yBN"/>
-                                </connections>
-                            </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Missing Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqi-Ia-wWL">
-                                <rect key="frame" x="145" y="329" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95920138889999995" green="0.022707580330000001" blue="0.0089223064220000006" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9Q-ze-lPy">
-                                <rect key="frame" x="210" y="267" width="68" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitButtonPressed:" destination="uTb-py-5Dm" eventType="touchUpInside" id="df6-6I-3xG"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="A33-bw-yw0" firstAttribute="leading" secondItem="MdO-dw-Yq5" secondAttribute="leadingMargin" constant="113" id="34Q-Qj-sFE"/>
-                            <constraint firstItem="U9Q-ze-lPy" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" constant="247" id="4P3-GF-fen"/>
-                            <constraint firstItem="aD3-rp-MyM" firstAttribute="leading" secondItem="0au-le-xUu" secondAttribute="trailing" constant="90" id="5y5-FC-PMN"/>
-                            <constraint firstItem="aD3-rp-MyM" firstAttribute="top" secondItem="QbJ-Dw-P3G" secondAttribute="bottom" constant="19" id="LBn-jk-dv7"/>
-                            <constraint firstItem="0au-le-xUu" firstAttribute="leading" secondItem="MdO-dw-Yq5" secondAttribute="leadingMargin" constant="50" id="RBc-7F-Q3i"/>
-                            <constraint firstItem="iGX-Su-gMM" firstAttribute="leading" secondItem="bdY-Gd-jj3" secondAttribute="trailing" constant="38" id="Sc9-gS-4HL"/>
-                            <constraint firstItem="dzc-Hk-M00" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" id="ULr-rO-xdS"/>
-                            <constraint firstItem="bdY-Gd-jj3" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" constant="78" id="YHg-Ma-59U"/>
-                            <constraint firstItem="bdY-Gd-jj3" firstAttribute="leading" secondItem="MdO-dw-Yq5" secondAttribute="leadingMargin" constant="50" id="aJi-qe-iK9"/>
-                            <constraint firstItem="fd6-Bp-3hG" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" constant="135" id="bdh-IE-xpM"/>
-                            <constraint firstItem="U9Q-ze-lPy" firstAttribute="leading" secondItem="A33-bw-yw0" secondAttribute="trailing" constant="33" id="chF-F0-BbP"/>
-                            <constraint firstItem="QbJ-Dw-P3G" firstAttribute="top" secondItem="iGX-Su-gMM" secondAttribute="bottom" constant="31" id="fNF-X4-eSl"/>
-                            <constraint firstItem="0au-le-xUu" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" constant="184" id="l0S-EG-z9J"/>
-                            <constraint firstItem="dzc-Hk-M00" firstAttribute="leading" secondItem="MdO-dw-Yq5" secondAttribute="leadingMargin" constant="95" id="liD-j2-YMJ"/>
-                            <constraint firstItem="dzc-Hk-M00" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" id="lna-Hi-TTD"/>
-                            <constraint firstItem="fd6-Bp-3hG" firstAttribute="leading" secondItem="MdO-dw-Yq5" secondAttribute="leadingMargin" constant="50" id="muK-8u-0Mk"/>
-                            <constraint firstItem="A33-bw-yw0" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" constant="247" id="qmh-BL-fgC"/>
-                            <constraint firstItem="iGX-Su-gMM" firstAttribute="top" secondItem="zk1-St-pNo" secondAttribute="bottom" constant="78" id="sSo-FO-6vT"/>
-                            <constraint firstItem="QbJ-Dw-P3G" firstAttribute="leading" secondItem="fd6-Bp-3hG" secondAttribute="trailing" constant="20" id="uKK-Nn-tIC"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="beerNameText" destination="iGX-Su-gMM" id="Ghb-S1-p7U"/>
-                        <outlet property="brewerNameText" destination="QbJ-Dw-P3G" id="fKG-pW-f80"/>
-                        <outlet property="errorField" destination="qqi-Ia-wWL" id="rnM-Az-WhG"/>
-                        <outlet property="priceText" destination="aD3-rp-MyM" id="WRY-4q-mhq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDq-4v-DUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3968" y="603"/>
+            <point key="canvasLocation" x="840" y="219"/>
         </scene>
         <!--New Post View Controller-->
         <scene sceneID="Oup-Jo-kjV">
@@ -506,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmK-zc-DYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3970" y="1281"/>
+            <point key="canvasLocation" x="1752" y="773"/>
         </scene>
         <!--View Post View Controller-->
         <scene sceneID="zZq-Yx-Xc3">
@@ -543,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxX-zJ-hyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3966" y="2022"/>
+            <point key="canvasLocation" x="1752" y="1622"/>
         </scene>
         <!--On Tap View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -643,7 +529,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1562" y="360"/>
+            <point key="canvasLocation" x="-258" y="640"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="XQ2-rl-MTQ">
@@ -755,7 +641,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1562" y="1161"/>
+            <point key="canvasLocation" x="-258" y="1441"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -776,7 +662,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1044" y="98"/>
+            <point key="canvasLocation" x="-2270" y="328"/>
         </scene>
         <!--Scanner-->
         <scene sceneID="qjc-ZH-es9">
@@ -795,7 +681,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ER0-kb-L4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="-1070" y="-40"/>
         </scene>
         <!--On Tap-->
         <scene sceneID="q8K-57-1L4">
@@ -814,7 +700,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMP-NQ-rLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="-1070" y="640"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="2lN-s7-M1d">
@@ -842,7 +728,7 @@
         <scene sceneID="YVP-eZ-gsu">
             <objects>
                 <tableViewController id="E4D-6B-QD3" customClass="RearViewController" customModule="OnTap" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oHV-b7-Q0G">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oHV-b7-Q0G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -868,7 +754,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="breweryInfo" textLabel="Oqb-zF-qfl" style="IBUITableViewCellStyleDefault" id="dIw-Cy-wnP">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="breweryInfo" textLabel="Oqb-zF-qfl" style="IBUITableViewCellStyleDefault" id="dIw-Cy-wnP">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dIw-Cy-wnP" id="zXU-OG-FSD">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -953,7 +839,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MER-mK-MKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-441" y="-1030.5"/>
+            <point key="canvasLocation" x="-2270" y="-1555"/>
         </scene>
         <!--Search-->
         <scene sceneID="DWL-aE-e5M">
@@ -972,7 +858,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIm-vg-eEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="1161"/>
+            <point key="canvasLocation" x="-1070" y="1441"/>
         </scene>
         <!--Title-->
         <scene sceneID="bRn-At-5M7">
@@ -1186,7 +1072,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh2-Ms-oMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2962" y="1384.5"/>
+            <point key="canvasLocation" x="840" y="1441"/>
         </scene>
         <!--Add Beer Search Controller-->
         <scene sceneID="jzl-Rd-FlB">
@@ -1290,7 +1176,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2928" y="-353"/>
+            <point key="canvasLocation" x="1752" y="-905"/>
         </scene>
     </scenes>
     <resources>

@@ -14,20 +14,21 @@ import Alamofire
 
 class BreweryViewController: BaseInfoController
 {
-//    @IBOutlet weak var labelImage: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var established: UITextView!
     @IBOutlet weak var location: UITextView!
     @IBOutlet weak var website: UITextView!
     @IBOutlet weak var descriptionText: UITextView!
     
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(true)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         var navBar = UINavigationBar()
         self.title = super.nameStr
-        
         
         BreweryDBapi().searchBreweryByID(id) {
             (result: Dictionary<String,AnyObject>?) in
@@ -35,7 +36,6 @@ class BreweryViewController: BaseInfoController
             self.image = result!["imageStr"] as String
             self.getLabelImage(self.image)
         }
-        
     }
     
     func setLabels(data: NSDictionary)

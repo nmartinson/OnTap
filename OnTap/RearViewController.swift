@@ -25,6 +25,12 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
+    {
+        tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.textColor = UIColor.blackColor()
+        tableView.cellForRowAtIndexPath(indexPath)?.backgroundColor = UIColor.lightGrayColor()   
+    }
+    
     /******************************************************************************************
     *
     ******************************************************************************************/
@@ -32,6 +38,8 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
     {
         tableView.cellForRowAtIndexPath(indexPath)?.highlighted = false
         tableView.cellForRowAtIndexPath(indexPath)?.selected = false
+        tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.textColor = UIColor.lightGrayColor()
+        tableView.cellForRowAtIndexPath(indexPath)?.backgroundColor = UIColor.blackColor()
         switch(indexPath.row)
         {
         case 1:
@@ -45,6 +53,9 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
         }
     }
     
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        println("deselected")
+    }
     /******************************************************************************************
     *
     ******************************************************************************************/

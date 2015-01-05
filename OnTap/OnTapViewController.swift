@@ -43,7 +43,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewWillAppear(true)
         self.title = "On Tap"
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-
+    
 
         itemsOnTap.removeAll(keepCapacity: false)
         var (success, items) = fetchLog()
@@ -54,7 +54,6 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
             {
                 if (items![i].amount as Int) > 0
                 {
-                    println("id \(items![i].id)")
                     if let success = itemsOnTap["On Tap"]
                     {
                         itemsOnTap["On Tap"]!.append([items![i].name, items![i].amount, items![i].barcode, items![i].image, items![i].id])

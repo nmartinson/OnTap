@@ -17,12 +17,16 @@ class BaseInfoController: UIViewController, UIScrollViewDelegate
     var image = ""
     var id = ""
     var nameStr:String = ""
+    
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var labelImage: UIImageView!
     
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.scrollView.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 
     

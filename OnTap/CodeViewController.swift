@@ -18,7 +18,6 @@ class CodeViewController: BaseInfoController
     @IBOutlet weak var name: UITextView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var styleDescriptionText: UITextView!
-    @IBOutlet weak var scrollView: UIScrollView!
 
     var codeStr:String = ""
     var inventoryItems = [Inventory]()
@@ -38,6 +37,7 @@ class CodeViewController: BaseInfoController
 
     override func viewWillAppear(animated: Bool)
     {
+        super.viewWillAppear(true)
         var navBar = UINavigationBar()
         self.title = "Details"
         let navButton = UIBarButtonItem(title: "On Tap", style: .Plain, target: self, action: Selector("changeOnTapPressed"))
