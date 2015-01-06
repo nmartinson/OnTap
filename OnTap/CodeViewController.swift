@@ -10,19 +10,23 @@ import UIKit
 import CoreData
 import Alamofire
 
-class CodeViewController: BaseInfoController
+class CodeViewController: BaseInfoController, UITabBarDelegate
 {
+    @IBOutlet weak var commentsTabBar: UITabBar!
     @IBOutlet weak var abvText: UITextView!
     @IBOutlet weak var ibuText: UITextView!
     @IBOutlet weak var onTapText: UITextView!
     @IBOutlet weak var name: UITextView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var styleDescriptionText: UITextView!
+    @IBOutlet weak var descriptionPanel: UIView!
+    @IBOutlet weak var commentScrollView: UIScrollView!
 
     var codeStr:String = ""
     var inventoryItems = [Inventory]()
     var fromOnTap = false
     var fromSearch = false
+    var commentsHaveBeenLoaded = false
     
     // Used for Core Data functionality
     lazy var managedObjectContext : NSManagedObjectContext? = {
@@ -38,6 +42,13 @@ class CodeViewController: BaseInfoController
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
+
+        if let tabItem = commentsTabBar.items {
+            var description = tabItem[0] as UITabBarItem
+            commentsTabBar.selectedItem = description
+            descriptionPanel.hidden = false
+        }
+        
         var navBar = UINavigationBar()
         self.title = "Details"
         let navButton = UIBarButtonItem(title: "On Tap", style: .Plain, target: self, action: Selector("changeOnTapPressed"))
@@ -56,7 +67,7 @@ class CodeViewController: BaseInfoController
                 if results.count > 0
                 {
                     let beerID = results[0].objectForKey("beerID") as String
-                    self.id = beerID
+                    self.beerID = beerID
                     BreweryDBapi().searchBeerByID(beerID) {
                         (result: Dictionary<String,AnyObject>?) in
                         self.setBeerLabels(result!)
@@ -73,7 +84,7 @@ class CodeViewController: BaseInfoController
         else
         {
             // retrieves the beer information and sets the labels in the view
-            BreweryDBapi().searchBeerByID(id) {
+            BreweryDBapi().searchBeerByID(beerID) {
                 (result: Dictionary<String,AnyObject>?) in
                 self.setBeerLabels(result!)
                 self.image = result!["imageStr"] as String
@@ -138,7 +149,7 @@ class CodeViewController: BaseInfoController
                 let predicate = NSPredicate(format: "barcode == %@", codeStr)
                 fetchRequest.predicate = predicate
             case "id":
-                let predicate = NSPredicate(format: "id == %@", id)
+                let predicate = NSPredicate(format: "id == %@", beerID)
                 fetchRequest.predicate = predicate
             default:
                 return (false, 0, nil)
@@ -193,12 +204,12 @@ class CodeViewController: BaseInfoController
         else if segue.identifier == "toNewPost"
         {
             var controller = segue.destinationViewController as NewPostViewController
-            controller.beerID = self.id
+            controller.beerID = self.beerID
         }
         else if segue.identifier == "toViewPost"
         {
             var controller = segue.destinationViewController as ViewPostViewController
-            controller.beerID = self.id
+            controller.beerID = self.beerID
         }
     }
     
@@ -261,7 +272,6 @@ class CodeViewController: BaseInfoController
             
             if text != ""
             {
-                println("add to tap id: \(self.id)")
                 var input = text.toInt()!
                 let (success, number, item) = self.fetchLog("id")
                 if success
@@ -271,7 +281,7 @@ class CodeViewController: BaseInfoController
                 }
                 else
                 {
-                    var newItem = self.createInManagedObjectContext(self.managedObjectContext!, name: self.nameStr, amount: input, barcode: self.codeStr, id: self.id, image: self.image)
+                    var newItem = self.createInManagedObjectContext(self.managedObjectContext!, name: self.nameStr, amount: input, barcode: self.codeStr, id: self.beerID, image: self.image)
                     self.onTapText.text = "On tap: \(newItem.amount.stringValue)"
                 }
             }
@@ -290,7 +300,7 @@ class CodeViewController: BaseInfoController
                 }
                 else
                 {
-                    var newItem = self.createInManagedObjectContext(self.managedObjectContext!, name: self.nameStr, amount: input, barcode: self.codeStr, id: self.id, image: self.image)
+                    var newItem = self.createInManagedObjectContext(self.managedObjectContext!, name: self.nameStr, amount: input, barcode: self.codeStr, id: self.beerID, image: self.image)
                     self.onTapText.text = "On tap: \(newItem.amount.stringValue)"
                 }
             }
@@ -315,5 +325,81 @@ class CodeViewController: BaseInfoController
         
     }
 
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!)
+    {
+        var selectedItem = tabBar.selectedItem
+        if let item = tabBar.items {
+            var description = item[0] as UITabBarItem
+            var comments = item[1] as UITabBarItem
+            
+            switch selectedItem!
+            {
+                case description:
+                    commentScrollView.hidden = true
+                    descriptionPanel.hidden = false
+                    println("description")
+                case comments:
+                    descriptionPanel.hidden = true
+                    commentScrollView.hidden = false
+                    if !commentsHaveBeenLoaded
+                    {
+                        getComments()
+                        commentsHaveBeenLoaded = true
+                    }
+                default:
+                    break
+            }
+        }
+    }
+    
+    /******************************************************************************************
+    * Allows for placing an image in a dynamically created imageview
+    ******************************************************************************************/
+    func getLabelImage(imageStr: String, newImage: UIImageView)
+    {
+        Alamofire.request(.GET,imageStr).responseImage({ (request, _, image, error) -> Void in
+            if error == nil && image != nil{
+                newImage.image = image
+            }
+        })
+    }
+    
+    
+    func getComments()
+    {
+        var friendsRequest = FBRequest.requestForMyFriends()
+        friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+            if !(error != nil)
+            {
+                let resultDict = result as NSDictionary
+                let data = resultDict["data"] as NSArray
+                let element = data[0] as NSDictionary
+                let id = element["id"] as String
+            }
+        }
+        
+        var postQuery = PFQuery(className: "Post")
+        postQuery.whereKey("beerID", equalTo: beerID)
+        postQuery.findObjectsInBackgroundWithBlock{
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            let results = objects as NSArray
+            var yPos:CGFloat = 10.0
+            for(var i = 0; i < results.count; i++)
+            {
+                let name = results[i].objectForKey("name") as String
+                let imageURL = results[i].objectForKey("imageURL") as String
+                var image = UIImageView(frame: CGRectMake(16.0, yPos, 80.0, 50.0))
+                self.getLabelImage(imageURL, newImage: image)
+                var text = UITextView(frame: CGRectMake(115.0, yPos, 250, 50.0))
+                text.editable = false
+                var content = results[i].objectForKey("textContent") as String
+                text.text = "name: \(name)\n\(content)"
+                self.commentScrollView.addSubview(text)
+                self.commentScrollView.addSubview(image)
+                yPos += 70
+            }
+            self.commentScrollView.contentSize = CGSizeMake(600, CGFloat(70*results.count))
+        }
+    }
     
 } 

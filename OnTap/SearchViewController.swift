@@ -171,12 +171,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         {
             var controller = segue.destinationViewController as CodeViewController
             controller.fromSearch = true
-            controller.id = self.id
+            controller.beerID = self.id
         }
         else if segue.identifier == "fromSearchToBrewery"
         {
             var controller = segue.destinationViewController as BreweryViewController
-            controller.id = self.id
+            controller.beerID = self.id
             controller.nameStr = self.name
         }
     }

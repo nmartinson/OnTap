@@ -50,7 +50,7 @@ class NewPostViewController: UIViewController
                     let imageURL = "http://graph.facebook.com/\(facebookID)/picture?type=large"
                     println(user)
                     println(name)
-                    
+                    println("beer id \(self.beerID)")
                     var newPost = PFObject(className: "Post")
                     newPost.setObject(post, forKey: "textContent")
                     newPost.setObject(facebookID, forKey: "UID")

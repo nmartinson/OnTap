@@ -185,7 +185,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
             var controller = segue.destinationViewController as CodeViewController
             controller.codeStr = selectedCode
             controller.nameStr = name
-            controller.id = self.id
+            controller.beerID = self.id
             controller.fromOnTap = true
         }
     }

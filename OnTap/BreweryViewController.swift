@@ -30,7 +30,7 @@ class BreweryViewController: BaseInfoController
         var navBar = UINavigationBar()
         self.title = super.nameStr
         
-        BreweryDBapi().searchBreweryByID(id) {
+        BreweryDBapi().searchBreweryByID(beerID) {
             (result: Dictionary<String,AnyObject>?) in
             self.setLabels(result!)
             self.image = result!["imageStr"] as String
