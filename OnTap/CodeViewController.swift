@@ -42,7 +42,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
-
+        self.title = ""
         if let tabItem = commentsTabBar.items {
             var description = tabItem[0] as UITabBarItem
             commentsTabBar.selectedItem = description
@@ -50,7 +50,6 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
         }
         
         var navBar = UINavigationBar()
-        self.title = "Details"
         let navButton = UIBarButtonItem(title: "On Tap", style: .Plain, target: self, action: Selector("changeOnTapPressed"))
         navigationItem.rightBarButtonItem = navButton
         self.view.addSubview(navBar)
@@ -98,6 +97,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     
     func setBeerLabels(data: NSDictionary)
     {
+        self.title = (data["breweryName"] as String)
         self.nameStr = data["name"] as String
         var ibu = data["ibu"] as Float
         var abv = data["abv"] as Float
@@ -204,11 +204,6 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
         else if segue.identifier == "toNewPost"
         {
             var controller = segue.destinationViewController as NewPostViewController
-            controller.beerID = self.beerID
-        }
-        else if segue.identifier == "toViewPost"
-        {
-            var controller = segue.destinationViewController as ViewPostViewController
             controller.beerID = self.beerID
         }
     }
@@ -337,7 +332,6 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
                 case description:
                     commentScrollView.hidden = true
                     descriptionPanel.hidden = false
-                    println("description")
                 case comments:
                     descriptionPanel.hidden = true
                     commentScrollView.hidden = false

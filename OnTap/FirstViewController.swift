@@ -37,7 +37,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Scan Barcode"
+        self.title = "Aim at barcode"
         // Do any additional setup after loading the view, typically from a nib.
         mCaptureSession = AVCaptureSession()
         videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -66,10 +66,19 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         }
         var previewLayer = AVCaptureVideoPreviewLayer(session: mCaptureSession)
         previewLayer.frame = self.view.layer.bounds
+
         self.view.layer.addSublayer(previewLayer)
+
+        
+        let navBarHeight = self.navigationController?.navigationBar.frame.height
+        let tabBarHeight = self.tabBarController?.tabBar.frame.height
+        let height = UIScreen.mainScreen().bounds.height - tabBarHeight!
+        var image = UIImage(named: "BarcodeOverlay.png")
+        var imageView = UIImageView(frame: CGRectMake(0, navBarHeight!, UIScreen.mainScreen().bounds.width, height))
+        imageView.image = image
+        self.view.addSubview(imageView)
+        
         mCaptureSession.startRunning()
-        
-        
     }
 
     /******************************************************************************************

@@ -24,9 +24,9 @@
 		2B323D861A59CF7E00FFAC19 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D851A59CF7E00FFAC19 /* libz.dylib */; };
 		2B323D881A59CF8800FFAC19 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D871A59CF8800FFAC19 /* libsqlite3.dylib */; };
 		2B323D8B1A59DB1A00FFAC19 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D8A1A59DB1A00FFAC19 /* NewPostViewController.swift */; };
-		2B323D8D1A59E35E00FFAC19 /* ViewPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */; };
 		2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */; };
 		2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */; };
+		2B323D9E1A5C763700FFAC19 /* BarcodeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -112,10 +112,10 @@
 		2B323D851A59CF7E00FFAC19 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2B323D871A59CF8800FFAC19 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2B323D8A1A59DB1A00FFAC19 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
-		2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostsViewController.swift; sourceTree = "<group>"; };
 		2B323D911A5A20CD00FFAC19 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerSearchController.swift; path = ../AddBeerSearchController.swift; sourceTree = "<group>"; };
+		2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarcodeOverlay.png; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +204,7 @@
 		2B4664C81A4932FC00925448 = {
 			isa = PBXGroup;
 			children = (
+				2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */,
 				2B323D891A59CFC200FFAC19 /* Frameworks */,
 				2B4664D31A4932FC00925448 /* OnTap */,
 				2B4664EC1A4932FC00925448 /* OnTapTests */,
@@ -229,7 +230,6 @@
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
 				2B4664FF1A49345E00925448 /* Main.storyboard */,
 				2B323D8A1A59DB1A00FFAC19 /* NewPostViewController.swift */,
-				2B323D8C1A59E35E00FFAC19 /* ViewPostsViewController.swift */,
 				2BCC0C0A1A58C733004AA962 /* BreweryViewController.swift */,
 				2BD3B0A61A548F7400C6014D /* NotesViewController.swift */,
 				2B4665001A49345E00925448 /* OnTap.xcdatamodeld */,
@@ -410,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B323D9E1A5C763700FFAC19 /* BarcodeOverlay.png in Resources */,
 				2BF8BCBD1A575BB500B287FF /* menu.png in Resources */,
 				2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */,
 				2BF8BCBE1A575BB500B287FF /* menu@2x.png in Resources */,
@@ -436,7 +437,6 @@
 				2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */,
 				2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */,
 				2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */,
-				2B323D8D1A59E35E00FFAC19 /* ViewPostsViewController.swift in Sources */,
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
 				2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */,
 				2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */,

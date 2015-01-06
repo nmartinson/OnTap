@@ -26,11 +26,6 @@ class BaseInfoController: UIViewController, UIScrollViewDelegate
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
-        let navBarHeight = self.navigationController?.navigationBar.frame.height
-        println("nav height \(navBarHeight)")
-        let screenHeight = UIScreen.mainScreen().bounds.height
-        let screenWidth = UIScreen.mainScreen().bounds.width
-//        scrollView.contentSize = CGSizeMake(screenWidth, 1000)
         scrollView.contentSize = UIScreen.mainScreen().bounds.size
         self.scrollView.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }

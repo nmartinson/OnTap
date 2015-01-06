@@ -59,6 +59,8 @@ class BreweryDBapi
                 let breweryImage = json["data"][0]["breweries"][0]["images"]["medium"].stringValue
                 let breweryCountry = json["data"][0]["breweries"][0]["locations"][0]["country"]["displayName"].stringValue
                 let breweryCity = json["data"][0]["breweries"][0]["locations"][0]["locality"].stringValue
+                let breweryName = json["data"][0]["breweries"][0]["name"].stringValue
+
                 if abv == nil
                 {
                     abv = 0
@@ -72,7 +74,7 @@ class BreweryDBapi
                     imageStr = "http://www.brewerydb.com/img/glassware/pint_medium.png"
                 }
                 
-                beerDict = ["description": description, "styleDescription": styleDescription, "abv": abv!, "ibu": ibu!, "name": name, "imageStr": imageStr]
+                beerDict = ["description": description, "styleDescription": styleDescription, "abv": abv!, "ibu": ibu!, "name": name, "imageStr": imageStr, "breweryName": breweryName]
             }
             completion(result: beerDict)
         }
