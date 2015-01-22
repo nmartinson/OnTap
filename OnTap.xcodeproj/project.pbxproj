@@ -27,6 +27,8 @@
 		2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */; };
 		2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */; };
 		2B323D9E1A5C763700FFAC19 /* BarcodeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */; };
+		2B35CCC81A716AB1006F310A /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCC71A716AB1006F310A /* GoogleMaps.framework */; };
+		2B35CCCA1A716AC6006F310A /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B35CCC91A716AC6006F310A /* GoogleMaps.bundle */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -116,6 +118,8 @@
 		2B323D921A5A20CD00FFAC19 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerSearchController.swift; path = ../AddBeerSearchController.swift; sourceTree = "<group>"; };
 		2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarcodeOverlay.png; sourceTree = "<group>"; };
+		2B35CCC71A716AB1006F310A /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		2B35CCC91A716AC6006F310A /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,9 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B323D841A59CF7600FFAC19 /* SystemConfiguration.framework in Frameworks */,
 				2B323D881A59CF8800FFAC19 /* libsqlite3.dylib in Frameworks */,
 				2B323D861A59CF7E00FFAC19 /* libz.dylib in Frameworks */,
-				2B323D841A59CF7600FFAC19 /* SystemConfiguration.framework in Frameworks */,
 				2B323D821A59CF6F00FFAC19 /* StoreKit.framework in Frameworks */,
 				2B323D801A59CF6700FFAC19 /* Security.framework in Frameworks */,
 				2B323D7E1A59CF5F00FFAC19 /* QuartzCore.framework in Frameworks */,
@@ -163,6 +167,7 @@
 				2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */,
 				2B323D701A59CE6400FFAC19 /* Parse.framework in Frameworks */,
 				2BF8BCCA1A5777F900B287FF /* FacebookSDK.framework in Frameworks */,
+				2B35CCC81A716AB1006F310A /* GoogleMaps.framework in Frameworks */,
 				2B323D721A59CF1500FFAC19 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +185,7 @@
 		2B323D891A59CFC200FFAC19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B35CCC71A716AB1006F310A /* GoogleMaps.framework */,
 				2B4665271A49354700925448 /* Alamofire.xcodeproj */,
 				2BF8BC821A57501400B287FF /* SWReveal */,
 				2B323D871A59CF8800FFAC19 /* libsqlite3.dylib */,
@@ -204,6 +210,7 @@
 		2B4664C81A4932FC00925448 = {
 			isa = PBXGroup;
 			children = (
+				2B35CCC91A716AC6006F310A /* GoogleMaps.bundle */,
 				2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */,
 				2B323D891A59CFC200FFAC19 /* Frameworks */,
 				2B4664D31A4932FC00925448 /* OnTap */,
@@ -410,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B35CCCA1A716AC6006F310A /* GoogleMaps.bundle in Resources */,
 				2B323D9E1A5C763700FFAC19 /* BarcodeOverlay.png in Resources */,
 				2BF8BCBD1A575BB500B287FF /* menu.png in Resources */,
 				2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */,
@@ -574,6 +582,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos",
@@ -583,8 +592,10 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -594,6 +605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OnTap-ffooftfktfhkuecyoposrytaoavq/Build/Products/Debug-iphoneos",
@@ -603,7 +615,9 @@
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
