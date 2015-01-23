@@ -11,7 +11,6 @@
 		2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0EAAF91A4E2F660083CC69 /* BreweryDBapi.swift */; };
 		2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B29F41C1A54932300B16E1D /* AddBeerController.swift */; };
 		2B323D701A59CE6400FFAC19 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D6F1A59CE6400FFAC19 /* Parse.framework */; };
-		2B323D721A59CF1500FFAC19 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D711A59CF1500FFAC19 /* Bolts.framework */; };
 		2B323D741A59CF3400FFAC19 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D731A59CF3400FFAC19 /* AudioToolbox.framework */; };
 		2B323D761A59CF3B00FFAC19 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D751A59CF3B00FFAC19 /* CFNetwork.framework */; };
 		2B323D781A59CF4800FFAC19 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B323D771A59CF4800FFAC19 /* CoreGraphics.framework */; };
@@ -28,7 +27,24 @@
 		2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */; };
 		2B323D9E1A5C763700FFAC19 /* BarcodeOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */; };
 		2B35CCC81A716AB1006F310A /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCC71A716AB1006F310A /* GoogleMaps.framework */; };
-		2B35CCCA1A716AC6006F310A /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B35CCC91A716AC6006F310A /* GoogleMaps.bundle */; };
+		2B35CCCC1A716B23006F310A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCCB1A716B23006F310A /* OpenGLES.framework */; };
+		2B35CCCE1A716B37006F310A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCCD1A716B37006F310A /* libicucore.dylib */; };
+		2B35CCD01A716B40006F310A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCCF1A716B40006F310A /* libc++.dylib */; };
+		2B35CCD21A716B47006F310A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCD11A716B47006F310A /* ImageIO.framework */; };
+		2B35CCD41A716B58006F310A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCD31A716B58006F310A /* GLKit.framework */; };
+		2B35CCD61A716B62006F310A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCD51A716B62006F310A /* CoreText.framework */; };
+		2B35CCD81A716B73006F310A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCD71A716B73006F310A /* AVFoundation.framework */; };
+		2B35CCDD1A716C41006F310A /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCDA1A716C41006F310A /* MarkerInfoView.swift */; };
+		2B35CCDE1A716C41006F310A /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B35CCDB1A716C41006F310A /* MarkerInfoView.xib */; };
+		2B35CCDF1A716C41006F310A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCDC1A716C41006F310A /* UIViewExtension.swift */; };
+		2B35CCE11A716CE7006F310A /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCE01A716CE7006F310A /* PlaceMarker.swift */; };
+		2B35CCE31A716D2F006F310A /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCE21A716D2F006F310A /* GoogleDataProvider.swift */; };
+		2B35CCE51A716D36006F310A /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCE41A716D36006F310A /* GooglePlace.swift */; };
+		2B35CCEB1A718ECE006F310A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCEA1A718ECE006F310A /* CoreData.framework */; };
+		2B35CCED1A7190BA006F310A /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B35CCEC1A7190BA006F310A /* GoogleMaps.bundle */; };
+		2B35CCF31A7195A5006F310A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCF21A7195A5006F310A /* Social.framework */; };
+		2B35CCF51A7195AE006F310A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCF41A7195AE006F310A /* Accounts.framework */; };
+		2B35CCF71A7196AB006F310A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCF61A7196AB006F310A /* MapController.swift */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -119,7 +135,24 @@
 		2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBeerSearchController.swift; path = ../AddBeerSearchController.swift; sourceTree = "<group>"; };
 		2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarcodeOverlay.png; sourceTree = "<group>"; };
 		2B35CCC71A716AB1006F310A /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		2B35CCC91A716AC6006F310A /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		2B35CCCB1A716B23006F310A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2B35CCCD1A716B37006F310A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		2B35CCCF1A716B40006F310A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		2B35CCD11A716B47006F310A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		2B35CCD31A716B58006F310A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		2B35CCD51A716B62006F310A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		2B35CCD71A716B73006F310A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2B35CCDA1A716C41006F310A /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
+		2B35CCDB1A716C41006F310A /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
+		2B35CCDC1A716C41006F310A /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		2B35CCE01A716CE7006F310A /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		2B35CCE21A716D2F006F310A /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
+		2B35CCE41A716D36006F310A /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		2B35CCEA1A718ECE006F310A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2B35CCEC1A7190BA006F310A /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		2B35CCF21A7195A5006F310A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		2B35CCF41A7195AE006F310A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		2B35CCF61A7196AB006F310A /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,14 +186,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B35CCF51A7195AE006F310A /* Accounts.framework in Frameworks */,
+				2B35CCF31A7195A5006F310A /* Social.framework in Frameworks */,
+				2B35CCEB1A718ECE006F310A /* CoreData.framework in Frameworks */,
+				2B35CCD81A716B73006F310A /* AVFoundation.framework in Frameworks */,
+				2B323D7A1A59CF4F00FFAC19 /* CoreLocation.framework in Frameworks */,
+				2B35CCD61A716B62006F310A /* CoreText.framework in Frameworks */,
+				2B35CCD41A716B58006F310A /* GLKit.framework in Frameworks */,
+				2B35CCD21A716B47006F310A /* ImageIO.framework in Frameworks */,
+				2B35CCD01A716B40006F310A /* libc++.dylib in Frameworks */,
+				2B35CCCE1A716B37006F310A /* libicucore.dylib in Frameworks */,
+				2B323D861A59CF7E00FFAC19 /* libz.dylib in Frameworks */,
+				2B35CCCC1A716B23006F310A /* OpenGLES.framework in Frameworks */,
+				2B323D7E1A59CF5F00FFAC19 /* QuartzCore.framework in Frameworks */,
 				2B323D841A59CF7600FFAC19 /* SystemConfiguration.framework in Frameworks */,
 				2B323D881A59CF8800FFAC19 /* libsqlite3.dylib in Frameworks */,
-				2B323D861A59CF7E00FFAC19 /* libz.dylib in Frameworks */,
 				2B323D821A59CF6F00FFAC19 /* StoreKit.framework in Frameworks */,
 				2B323D801A59CF6700FFAC19 /* Security.framework in Frameworks */,
-				2B323D7E1A59CF5F00FFAC19 /* QuartzCore.framework in Frameworks */,
 				2B323D7C1A59CF5900FFAC19 /* MobileCoreServices.framework in Frameworks */,
-				2B323D7A1A59CF4F00FFAC19 /* CoreLocation.framework in Frameworks */,
 				2B323D781A59CF4800FFAC19 /* CoreGraphics.framework in Frameworks */,
 				2B323D761A59CF3B00FFAC19 /* CFNetwork.framework in Frameworks */,
 				2B323D741A59CF3400FFAC19 /* AudioToolbox.framework in Frameworks */,
@@ -168,7 +211,6 @@
 				2B323D701A59CE6400FFAC19 /* Parse.framework in Frameworks */,
 				2BF8BCCA1A5777F900B287FF /* FacebookSDK.framework in Frameworks */,
 				2B35CCC81A716AB1006F310A /* GoogleMaps.framework in Frameworks */,
-				2B323D721A59CF1500FFAC19 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +227,16 @@
 		2B323D891A59CFC200FFAC19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B35CCF41A7195AE006F310A /* Accounts.framework */,
+				2B35CCF21A7195A5006F310A /* Social.framework */,
+				2B35CCEA1A718ECE006F310A /* CoreData.framework */,
+				2B35CCD71A716B73006F310A /* AVFoundation.framework */,
+				2B35CCD51A716B62006F310A /* CoreText.framework */,
+				2B35CCD31A716B58006F310A /* GLKit.framework */,
+				2B35CCD11A716B47006F310A /* ImageIO.framework */,
+				2B35CCCF1A716B40006F310A /* libc++.dylib */,
+				2B35CCCD1A716B37006F310A /* libicucore.dylib */,
+				2B35CCCB1A716B23006F310A /* OpenGLES.framework */,
 				2B35CCC71A716AB1006F310A /* GoogleMaps.framework */,
 				2B4665271A49354700925448 /* Alamofire.xcodeproj */,
 				2BF8BC821A57501400B287FF /* SWReveal */,
@@ -207,10 +259,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B35CCD91A716C20006F310A /* Google Map Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B35CCF61A7196AB006F310A /* MapController.swift */,
+				2B35CCE21A716D2F006F310A /* GoogleDataProvider.swift */,
+				2B35CCE41A716D36006F310A /* GooglePlace.swift */,
+				2B35CCE01A716CE7006F310A /* PlaceMarker.swift */,
+				2B35CCDA1A716C41006F310A /* MarkerInfoView.swift */,
+				2B35CCDB1A716C41006F310A /* MarkerInfoView.xib */,
+				2B35CCDC1A716C41006F310A /* UIViewExtension.swift */,
+			);
+			name = "Google Map Files";
+			sourceTree = "<group>";
+		};
 		2B4664C81A4932FC00925448 = {
 			isa = PBXGroup;
 			children = (
-				2B35CCC91A716AC6006F310A /* GoogleMaps.bundle */,
+				2B35CCEC1A7190BA006F310A /* GoogleMaps.bundle */,
 				2B323D9D1A5C763700FFAC19 /* BarcodeOverlay.png */,
 				2B323D891A59CFC200FFAC19 /* Frameworks */,
 				2B4664D31A4932FC00925448 /* OnTap */,
@@ -231,6 +297,7 @@
 		2B4664D31A4932FC00925448 /* OnTap */ = {
 			isa = PBXGroup;
 			children = (
+				2B35CCD91A716C20006F310A /* Google Map Files */,
 				2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */,
 				2B4664D61A4932FC00925448 /* AppDelegate.swift */,
 				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
@@ -417,10 +484,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B35CCCA1A716AC6006F310A /* GoogleMaps.bundle in Resources */,
 				2B323D9E1A5C763700FFAC19 /* BarcodeOverlay.png in Resources */,
+				2B35CCED1A7190BA006F310A /* GoogleMaps.bundle in Resources */,
 				2BF8BCBD1A575BB500B287FF /* menu.png in Resources */,
 				2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */,
+				2B35CCDE1A716C41006F310A /* MarkerInfoView.xib in Resources */,
 				2BF8BCBE1A575BB500B287FF /* menu@2x.png in Resources */,
 				2B4664E11A4932FC00925448 /* Images.xcassets in Resources */,
 				2B4665071A49345E00925448 /* Main.storyboard in Resources */,
@@ -441,20 +509,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B35CCE51A716D36006F310A /* GooglePlace.swift in Sources */,
 				2BF8BCC01A57668D00B287FF /* RearViewController.swift in Sources */,
 				2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */,
 				2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */,
+				2B35CCDD1A716C41006F310A /* MarkerInfoView.swift in Sources */,
 				2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */,
 				2B4664FC1A49344B00925448 /* CodeViewController.swift in Sources */,
 				2B323D931A5A20CD00FFAC19 /* SWRevealViewController.m in Sources */,
 				2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
 				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
+				2B35CCDF1A716C41006F310A /* UIViewExtension.swift in Sources */,
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
+				2B35CCF71A7196AB006F310A /* MapController.swift in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
 				2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */,
 				2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */,
+				2B35CCE11A716CE7006F310A /* PlaceMarker.swift in Sources */,
 				2BCC0C0B1A58C733004AA962 /* BreweryViewController.swift in Sources */,
+				2B35CCE31A716D2F006F310A /* GoogleDataProvider.swift in Sources */,
 				2B4665081A49345E00925448 /* OnTap.xcdatamodeld in Sources */,
 				2BCC0C0D1A58CA98004AA962 /* BaseInfoController.swift in Sources */,
 				2B4665051A49345E00925448 /* FirstViewController.swift in Sources */,
@@ -591,6 +665,8 @@
 				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridging-Header.h";
@@ -614,6 +690,8 @@
 				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnTap/OnTap-Bridging-Header.h";

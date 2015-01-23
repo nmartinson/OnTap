@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let googleMapsApiKey = "AIzaSyA7jYil7IbfEMJwXFxIxnpjw5NXjRiLemY"
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -22,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         Parse.setApplicationId("jFwOrSIDGvadMsi3Jmx2EcO9grn7RoQwM44rdWBf", clientKey: "DKQX2MMdCBogMgi7JWNEnP4a7d7jS6XYQenHcXcO")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions){ void in }
-        
+        GMSServices.provideAPIKey(googleMapsApiKey)
+
         return true
     }
     

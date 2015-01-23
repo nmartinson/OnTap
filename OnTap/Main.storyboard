@@ -7,6 +7,24 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="Tba-ua-Rj0">
+            <objects>
+                <viewController id="vyo-To-Lep" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sGK-rE-nBV"/>
+                        <viewControllerLayoutGuide type="bottom" id="rsi-Yg-ieg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wlk-4Q-okx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7S-6b-L8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258" y="-759"/>
+        </scene>
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -683,6 +701,7 @@
                         <segue destination="JSI-LS-fpr" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="oza-ZE-iC8" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Kll-CZ-SZl" kind="relationship" relationship="viewControllers" id="SHQ-zI-mXc"/>
+                        <segue destination="nJD-Fd-bOA" kind="relationship" relationship="viewControllers" id="Cpz-9Y-vHu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1098,6 +1117,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh2-Ms-oMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="840" y="1441"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="HkM-Hd-cSh">
+            <objects>
+                <viewController title="Map" id="nJD-Fd-bOA" customClass="MapController" customModule="OnTap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xs4-la-wxf"/>
+                        <viewControllerLayoutGuide type="bottom" id="IPf-0O-dez"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mxt-lT-Mdp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohu-Fp-d11" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="28" width="600" height="528"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ohu-Fp-d11" firstAttribute="bottom" secondItem="IPf-0O-dez" secondAttribute="top" id="GOn-lB-jTx"/>
+                            <constraint firstAttribute="trailing" secondItem="ohu-Fp-d11" secondAttribute="trailing" id="Hpi-Kb-R3N"/>
+                            <constraint firstItem="ohu-Fp-d11" firstAttribute="leading" secondItem="Mxt-lT-Mdp" secondAttribute="leading" id="MXA-H5-MQZ"/>
+                            <constraint firstItem="ohu-Fp-d11" firstAttribute="top" secondItem="xs4-la-wxf" secondAttribute="bottom" constant="8" symbolic="YES" id="a1h-3a-r5Y"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="7eL-kX-ItB"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="ohu-Fp-d11" id="yqR-4H-Skj"/>
+                        <segue destination="vyo-To-Lep" kind="presentation" identifier="placeDetail" id="Pjh-uK-iMR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EHN-bg-ejM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1070" y="-759"/>
         </scene>
         <!--Add Beer Search Controller-->
         <scene sceneID="jzl-Rd-FlB">
