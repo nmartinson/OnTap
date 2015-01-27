@@ -16,6 +16,8 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     //  @IBOutlet weak var mapCenterPinImage: UIImageView!
     //  @IBOutlet weak var pinImageVerticalConstraint: NSLayoutConstraint!
     let locationManager = CLLocationManager()
+    var placeDetail:[String:String]?
+    
     var mapRadius: Double {
         get {
             let region = mapView.projection.visibleRegion()
@@ -25,6 +27,9 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
         }
     }
     let dataProvider = GoogleDataProvider()
+    
+    
+    
     
     
     /******************************************************************************************
@@ -43,6 +48,10 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
             mapView.myLocationEnabled = true
             mapView.settings.myLocationButton = true
         }
+        
+        var i = mapView.projection.visibleRegion()
+        
+        
     }
     
     /******************************************************************************************
@@ -63,7 +72,8 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
         if status == .AuthorizedWhenInUse
         {
             locationManager.startUpdatingLocation()
@@ -75,7 +85,8 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)
+    {
         
         if let location = locations.first as? CLLocation{
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
@@ -114,21 +125,30 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     
     func mapView(mapView: GMSMapView!, didTapInfoWindowOfMarker marker: GMSMarker!)
     {
-        println("info tapped")
         var marker = marker as PlaceMarker
-        println(marker.place.placeID)
-        dataProvider.fetchPlaceDetails(marker.place.placeID, completion: { ([GooglePlace]) -> Void in
-        })
-//        performSegueWithIdentifier("placeDetail", sender: self)
+        dataProvider.fetchPlaceDetails(marker.place.placeID) { (placeDetail)  in
+            self.placeDetail = placeDetail
+//            self.performSegueWithIdentifier("placeDetail", sender: self)
+            self.performSegueWithIdentifier("webViewSegue", sender: self)
+
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "placeDetail"
         {
-        
+            var controller = segue.destinationViewController as PlaceDetailController
+            controller.placeDetails = self.placeDetail!
+        }
+        else if segue.identifier == "webViewSegue"
+        {
+            var controller = segue.destinationViewController as PlaceWebViewController
+            controller.url = placeDetail!["url"]!
+            controller.navTitle = placeDetail!["name"]!
         }
     }
+    
     
     /******************************************************************************************
     *

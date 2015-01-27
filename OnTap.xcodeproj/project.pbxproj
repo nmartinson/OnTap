@@ -45,6 +45,7 @@
 		2B35CCF31A7195A5006F310A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCF21A7195A5006F310A /* Social.framework */; };
 		2B35CCF51A7195AE006F310A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B35CCF41A7195AE006F310A /* Accounts.framework */; };
 		2B35CCF71A7196AB006F310A /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCF61A7196AB006F310A /* MapController.swift */; };
+		2B35CCF91A72A20D006F310A /* PlaceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B35CCF81A72A20D006F310A /* PlaceDetailController.swift */; };
 		2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4664D61A4932FC00925448 /* AppDelegate.swift */; };
 		2B4664E11A4932FC00925448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E01A4932FC00925448 /* Images.xcassets */; };
 		2B4664E41A4932FC00925448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4664E21A4932FC00925448 /* LaunchScreen.xib */; };
@@ -62,6 +63,8 @@
 		2BCC0C0B1A58C733004AA962 /* BreweryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCC0C0A1A58C733004AA962 /* BreweryViewController.swift */; };
 		2BCC0C0D1A58CA98004AA962 /* BaseInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCC0C0C1A58CA98004AA962 /* BaseInfoController.swift */; };
 		2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3B0A61A548F7400C6014D /* NotesViewController.swift */; };
+		2BEF18481A72DF82009BADC1 /* HourTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF18471A72DF82009BADC1 /* HourTableViewCell.swift */; };
+		2BEF184A1A76A306009BADC1 /* PlaceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF18491A76A306009BADC1 /* PlaceWebViewController.swift */; };
 		2BF8BCBD1A575BB500B287FF /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBB1A575BB500B287FF /* menu.png */; };
 		2BF8BCBE1A575BB500B287FF /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBC1A575BB500B287FF /* menu@2x.png */; };
 		2BF8BCC01A57668D00B287FF /* RearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8BCBF1A57668D00B287FF /* RearViewController.swift */; };
@@ -153,6 +156,7 @@
 		2B35CCF21A7195A5006F310A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		2B35CCF41A7195AE006F310A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2B35CCF61A7196AB006F310A /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		2B35CCF81A72A20D006F310A /* PlaceDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDetailController.swift; path = ../PlaceDetailController.swift; sourceTree = "<group>"; };
 		2B4664D11A4932FC00925448 /* OnTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4664D51A4932FC00925448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4664D61A4932FC00925448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		2BCC0C0A1A58C733004AA962 /* BreweryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryViewController.swift; sourceTree = "<group>"; };
 		2BCC0C0C1A58CA98004AA962 /* BaseInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInfoController.swift; sourceTree = "<group>"; };
 		2BD3B0A61A548F7400C6014D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		2BEF18471A72DF82009BADC1 /* HourTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourTableViewCell.swift; sourceTree = "<group>"; };
+		2BEF18491A76A306009BADC1 /* PlaceWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceWebViewController.swift; sourceTree = "<group>"; };
 		2BF8BC7E1A574FE100B287FF /* OnTap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnTap-Bridging-Header.h"; sourceTree = "<group>"; };
 		2BF8BCBB1A575BB500B287FF /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		2BF8BCBC1A575BB500B287FF /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B323D761A59CF3B00FFAC19 /* CFNetwork.framework in Frameworks */,
 				2B35CCF51A7195AE006F310A /* Accounts.framework in Frameworks */,
 				2B35CCF31A7195A5006F310A /* Social.framework in Frameworks */,
 				2B35CCEB1A718ECE006F310A /* CoreData.framework in Frameworks */,
@@ -205,7 +212,6 @@
 				2B323D801A59CF6700FFAC19 /* Security.framework in Frameworks */,
 				2B323D7C1A59CF5900FFAC19 /* MobileCoreServices.framework in Frameworks */,
 				2B323D781A59CF4800FFAC19 /* CoreGraphics.framework in Frameworks */,
-				2B323D761A59CF3B00FFAC19 /* CFNetwork.framework in Frameworks */,
 				2B323D741A59CF3400FFAC19 /* AudioToolbox.framework in Frameworks */,
 				2B4665351A49356B00925448 /* Alamofire.framework in Frameworks */,
 				2B323D701A59CE6400FFAC19 /* Parse.framework in Frameworks */,
@@ -299,6 +305,9 @@
 			children = (
 				2B35CCD91A716C20006F310A /* Google Map Files */,
 				2B323D951A5B051F00FFAC19 /* AddBeerSearchController.swift */,
+				2BEF18491A76A306009BADC1 /* PlaceWebViewController.swift */,
+				2BEF18471A72DF82009BADC1 /* HourTableViewCell.swift */,
+				2B35CCF81A72A20D006F310A /* PlaceDetailController.swift */,
 				2B4664D61A4932FC00925448 /* AppDelegate.swift */,
 				2B4664FD1A49345E00925448 /* FirstViewController.swift */,
 				2B4664FE1A49345E00925448 /* Inventory.swift */,
@@ -512,6 +521,7 @@
 				2B35CCE51A716D36006F310A /* GooglePlace.swift in Sources */,
 				2BF8BCC01A57668D00B287FF /* RearViewController.swift in Sources */,
 				2B323D961A5B051F00FFAC19 /* AddBeerSearchController.swift in Sources */,
+				2B35CCF91A72A20D006F310A /* PlaceDetailController.swift in Sources */,
 				2B0EAAF71A4E0C150083CC69 /* SearchViewController.swift in Sources */,
 				2B35CCDD1A716C41006F310A /* MarkerInfoView.swift in Sources */,
 				2B29F41D1A54932300B16E1D /* AddBeerController.swift in Sources */,
@@ -520,10 +530,12 @@
 				2B0EAAFA1A4E2F660083CC69 /* BreweryDBapi.swift in Sources */,
 				2B4665061A49345E00925448 /* Inventory.swift in Sources */,
 				2B46650B1A49345E00925448 /* ViewController.swift in Sources */,
+				2BEF18481A72DF82009BADC1 /* HourTableViewCell.swift in Sources */,
 				2B35CCDF1A716C41006F310A /* UIViewExtension.swift in Sources */,
 				2B46650A1A49345E00925448 /* SwiftyJSON.swift in Sources */,
 				2B35CCF71A7196AB006F310A /* MapController.swift in Sources */,
 				2B4664D71A4932FC00925448 /* AppDelegate.swift in Sources */,
+				2BEF184A1A76A306009BADC1 /* PlaceWebViewController.swift in Sources */,
 				2B4665091A49345E00925448 /* OnTapViewController.swift in Sources */,
 				2BD3B0A71A548F7400C6014D /* NotesViewController.swift in Sources */,
 				2B35CCE11A716CE7006F310A /* PlaceMarker.swift in Sources */,
@@ -663,6 +675,10 @@
 					"$(PROJECT_DIR)",
 					/Users/nickmartinson/Documents/FacebookSDK,
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
@@ -688,9 +704,13 @@
 					"$(PROJECT_DIR)",
 					/Users/nickmartinson/Documents/FacebookSDK,
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = OnTap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -13,12 +13,13 @@ import Alamofire
 
 class GoogleDataProvider {
   
-  let apiKey = "AIzaSyDRKE9chgAP9-HgySO1748OUSSzdTe6H78"
-  var photoCache = [String:UIImage]()
-  var placesTask = NSURLSessionDataTask()
-  var session: NSURLSession {
-    return NSURLSession.sharedSession()
-  }
+    let apiKey = "AIzaSyDRKE9chgAP9-HgySO1748OUSSzdTe6H78"
+
+    var photoCache = [String:UIImage]()
+    var placesTask = NSURLSessionDataTask()
+    var session: NSURLSession {
+        return NSURLSession.sharedSession()
+    }
   
     
     /******************************************************************************************
@@ -98,19 +99,42 @@ class GoogleDataProvider {
     /******************************************************************************************
     *
     ******************************************************************************************/
-    func fetchPlaceDetails(place_id: String, completion: (([GooglePlace]) -> Void)) -> ()
+    func fetchPlaceDetails(place_id: String, completion: ((Dictionary<String,String>) -> Void)) -> ()
     {
         var urlString = "https://maps.googleapis.com/maps/api/place/details/json?key=\(apiKey)&placeid=\(place_id)"
-        
+        var hourList = ""
         
         Alamofire.request(.GET, urlString, parameters: nil).responseJSON { (_, _, data, _) -> Void in
             var data = JSON(data!)
+            var dictionary:Dictionary<String,String> = ["address": "", "name": "", "rating": "", "hours": "",
+            "url": "", "website": ""]
+
             let address = data["result"]["vicinity"].stringValue
             let name = data["result"]["name"].stringValue
-            let rating = data["result"]["rating"].stringValue
-            println("address: \(address)")
-            println("name: \(name)")
-            println("rating: \(rating)")
+            var rating = data["result"]["rating"].stringValue
+            let website = data["result"]["website"].stringValue
+            let url = data["result"]["url"].stringValue
+            rating = "Rating: \(rating)"
+            let hours = data["result"]["opening_hours"]["weekday_text"].array
+            
+            if hours != nil
+            {
+                for hour in hours!
+                {
+                    hourList = hourList + "\(hour.stringValue)\n"
+                }
+                hourList = hourList.substringToIndex(hourList.endIndex.predecessor())
+                dictionary["hours"] = hourList
+            }
+
+            
+            // Remove the last \n from the string
+            dictionary["address"] = address
+            dictionary["name"] = name
+            dictionary["rating"] = rating
+            dictionary["url"] = url
+            dictionary["website"] = website
+            completion(dictionary)
         }
         
         
