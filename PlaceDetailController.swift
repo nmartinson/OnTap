@@ -28,8 +28,8 @@ class PlaceDetailController: UIViewController, UITableViewDelegate, UITableViewD
         
         if( keys![indexPath.row] == "hours" && placeDetails!["hours"] != "")
         {
-            cell = tableView.dequeueReusableCellWithIdentifier("hourCell") as HourTableViewCell
-            (cell as HourTableViewCell).hoursLabel.text  = placeDetails![keys![indexPath.row]]
+            cell = tableView.dequeueReusableCellWithIdentifier("hourCell") as! HourTableViewCell
+            (cell as! HourTableViewCell).hoursLabel.text  = placeDetails![keys![indexPath.row]]
         }
         else
         {

@@ -26,7 +26,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // Used for Core Data functionality
     lazy var managedObjectContext : NSManagedObjectContext? = {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let managedObjectContext = appDelegate.managedObjectContext {
             return managedObjectContext
         }
@@ -52,7 +52,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         {
             for(var i = 0; i < items?.count; i++)
             {
-                if (items![i].amount as Int) > 0
+                if (items![i].amount as! Int) > 0
                 {
                     if let success = itemsOnTap["On Tap"]
                     {
@@ -119,7 +119,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     ******************************************************************************************/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
         var sectionTitle = tableSections[indexPath.section]
         var sectionBeer = itemsOnTap[sectionTitle]!
@@ -152,9 +152,9 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
         var sectionTitle = tableSections[indexPath.section]
         var sectionBeer = itemsOnTap[sectionTitle]!
         var beer = sectionBeer[indexPath.row]
-        selectedCode = beer[2] as String
-        name = beer[0] as String
-        id = beer[4] as String
+        selectedCode = beer[2] as! String
+        name = beer[0] as! String
+        id = beer[4] as! String
         
         self.performSegueWithIdentifier("onTapToDetail", sender: self)
     }
@@ -182,7 +182,7 @@ class OnTapViewController: UIViewController, UITableViewDataSource, UITableViewD
     {
         if segue.identifier == "onTapToDetail"
         {
-            var controller = segue.destinationViewController as CodeViewController
+            var controller = segue.destinationViewController as! CodeViewController
             controller.codeStr = selectedCode
             controller.nameStr = name
             controller.beerID = self.id

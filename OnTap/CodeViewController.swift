@@ -30,7 +30,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     
     // Used for Core Data functionality
     lazy var managedObjectContext : NSManagedObjectContext? = {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let managedObjectContext = appDelegate.managedObjectContext {
             return managedObjectContext
         }
@@ -44,7 +44,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
         super.viewWillAppear(true)
         self.title = ""
         if let tabItem = commentsTabBar.items {
-            var description = tabItem[0] as UITabBarItem
+            var description = tabItem[0] as! UITabBarItem
             commentsTabBar.selectedItem = description
             descriptionPanel.hidden = false
         }
@@ -62,10 +62,10 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
             postQuery.whereKey("barcode", equalTo: codeStr)
             postQuery.findObjectsInBackgroundWithBlock{
                 (objects: [AnyObject]!, error: NSError!) -> Void in
-                let results = objects as NSArray
+                let results = objects as! NSArray
                 if results.count > 0
                 {
-                    let beerID = results[0].objectForKey("beerID") as String
+                    let beerID = results[0].objectForKey("beerID") as! String
                     self.beerID = beerID
                     BreweryDBapi().searchBeerByID(beerID) {
                         (result: Dictionary<String,AnyObject>?) in
@@ -86,7 +86,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
             BreweryDBapi().searchBeerByID(beerID) {
                 (result: Dictionary<String,AnyObject>?) in
                 self.setBeerLabels(result!)
-                self.image = result!["imageStr"] as String
+                self.image = result!["imageStr"] as! String
                 self.getLabelImage(self.image)
             }
             self.onTapText.text = "On tap: 0"
@@ -97,13 +97,13 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     
     func setBeerLabels(data: NSDictionary)
     {
-        self.title = (data["breweryName"] as String)
-        self.nameStr = data["name"] as String
-        var ibu = data["ibu"] as Float
-        var abv = data["abv"] as Float
-        var description = data["description"] as String
-        var styleDescription = data["styleDescription"] as String
-        self.image = data["imageStr"] as String
+        self.title = (data["breweryName"] as! String)
+        self.nameStr = data["name"] as! String
+        var ibu = data["ibu"] as! Float
+        var abv = data["abv"] as! Float
+        var description = data["description"] as! String
+        var styleDescription = data["styleDescription"] as! String
+        self.image = data["imageStr"] as! String
         
         BreweryDBapi().getLabelImage(self.image) {
             (newImage: UIImage) in
@@ -198,12 +198,12 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     {
         if( segue.identifier == "addBeerSegue")
         {
-            var controller = segue.destinationViewController as AddBeerSearchController
+            var controller = segue.destinationViewController as! AddBeerSearchController
             controller.upc = codeStr
         }
         else if segue.identifier == "toNewPost"
         {
-            var controller = segue.destinationViewController as NewPostViewController
+            var controller = segue.destinationViewController as! NewPostViewController
             controller.beerID = self.beerID
         }
     }
@@ -235,7 +235,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     ******************************************************************************************/
     func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, amount: Int, barcode: String, id: String, image: String) -> Inventory
     {
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Inventory", inManagedObjectContext: moc) as Inventory
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Inventory", inManagedObjectContext: moc) as! Inventory
         newItem.name = name
         newItem.amount = amount
         newItem.barcode = barcode
@@ -263,7 +263,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
         }
         let addAction = UIAlertAction(title: "Add", style: .Default){ void in
             
-            var text = (alertController.textFields![0] as UITextField).text
+            var text = (alertController.textFields![0] as! UITextField).text
             
             if text != ""
             {
@@ -282,7 +282,7 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
             }
         }
         let removeAction = UIAlertAction(title: "Remove", style: .Destructive){ void in
-            var text = (alertController.textFields![0] as UITextField).text
+            var text = (alertController.textFields![0] as! UITextField).text
             
             if text != ""
             {
@@ -324,8 +324,8 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
     {
         var selectedItem = tabBar.selectedItem
         if let item = tabBar.items {
-            var description = item[0] as UITabBarItem
-            var comments = item[1] as UITabBarItem
+            var description = item[0] as! UITabBarItem
+            var comments = item[1] as! UITabBarItem
             
             switch selectedItem!
             {
@@ -365,10 +365,10 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
         friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             if !(error != nil)
             {
-                let resultDict = result as NSDictionary
-                let data = resultDict["data"] as NSArray
-                let element = data[0] as NSDictionary
-                let id = element["id"] as String
+                let resultDict = result as! NSDictionary
+                let data = resultDict["data"] as! NSArray
+                let element = data[0] as! NSDictionary
+                let id = element["id"] as! String
             }
         }
         
@@ -376,17 +376,17 @@ class CodeViewController: BaseInfoController, UITabBarDelegate
         postQuery.whereKey("beerID", equalTo: beerID)
         postQuery.findObjectsInBackgroundWithBlock{
             (objects: [AnyObject]!, error: NSError!) -> Void in
-            let results = objects as NSArray
+            let results = objects as! NSArray
             var yPos:CGFloat = 10.0
             for(var i = 0; i < results.count; i++)
             {
-                let name = results[i].objectForKey("name") as String
-                let imageURL = results[i].objectForKey("imageURL") as String
+                let name = results[i].objectForKey("name") as! String
+                let imageURL = results[i].objectForKey("imageURL") as! String
                 var image = UIImageView(frame: CGRectMake(16.0, yPos, 80.0, 50.0))
                 self.getLabelImage(imageURL, newImage: image)
                 var text = UITextView(frame: CGRectMake(115.0, yPos, 250, 50.0))
                 text.editable = false
-                var content = results[i].objectForKey("textContent") as String
+                var content = results[i].objectForKey("textContent") as! String
                 text.text = "name: \(name)\n\(content)"
                 self.commentScrollView.addSubview(text)
                 self.commentScrollView.addSubview(image)

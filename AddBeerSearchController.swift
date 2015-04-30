@@ -22,8 +22,8 @@ class AddBeerSearchController: SearchViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.id = beersReturned[indexPath.row][1] as String
-        self.name = beersReturned[indexPath.row][0] as String
+        self.id = beersReturned[indexPath.row][1] as! String
+        self.name = beersReturned[indexPath.row][0] as! String
         
         openModalPrompt()
         tableView.cellForRowAtIndexPath(indexPath)?.selected = false

@@ -101,7 +101,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     ******************************************************************************************/
     func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView!
     {
-        let placeMarker = marker as PlaceMarker
+        let placeMarker = marker as! PlaceMarker
         if let infoView = UIView.viewFromNibName("MarkerInfoView") as? MarkerInfoView
         {
             infoView.nameLabel.text = placeMarker.place.name
@@ -125,7 +125,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     
     func mapView(mapView: GMSMapView!, didTapInfoWindowOfMarker marker: GMSMarker!)
     {
-        var marker = marker as PlaceMarker
+        var marker = marker as! PlaceMarker
         dataProvider.fetchPlaceDetails(marker.place.placeID) { (placeDetail)  in
             self.placeDetail = placeDetail
 //            self.performSegueWithIdentifier("placeDetail", sender: self)
@@ -138,12 +138,12 @@ class MapController: UIViewController, CLLocationManagerDelegate, GMSMapViewDele
     {
         if segue.identifier == "placeDetail"
         {
-            var controller = segue.destinationViewController as PlaceDetailController
+            var controller = segue.destinationViewController as! PlaceDetailController
             controller.placeDetails = self.placeDetail!
         }
         else if segue.identifier == "webViewSegue"
         {
-            var controller = segue.destinationViewController as PlaceWebViewController
+            var controller = segue.destinationViewController as! PlaceWebViewController
             controller.url = placeDetail!["url"]!
             controller.navTitle = placeDetail!["name"]!
         }

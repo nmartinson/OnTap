@@ -44,9 +44,9 @@ class NewPostViewController: UIViewController
             FBRequest.requestForMe().startWithCompletionHandler{(connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
                 if error == nil
                 {
-                    let user = result as NSDictionary
-                    let facebookID = result["id"] as String
-                    let name = result["name"] as String
+                    let user = result as! NSDictionary
+                    let facebookID = result["id"] as! String
+                    let name = result["name"] as! String
                     let imageURL = "http://graph.facebook.com/\(facebookID)/picture?type=large"
                     println(user)
                     println(name)

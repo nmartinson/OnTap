@@ -52,15 +52,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             {
                 case 0:
                     BreweryDBapi().searchBeersByName(searchStr) {
-                        (result: [[NSObject]]?) in
-                        self.beersReturned = result!
+                        (result: [[NSObject]]) in
+                        self.beersReturned = result
                         self.tableView.reloadData()
                         self.statusIndicator.stopAnimating()
                 }
                 case 1:
                     BreweryDBapi().searchBreweryByName(searchStr) {
-                        (result: [[NSObject]]?) in
-                        self.beersReturned = result!
+                        (result: [[NSObject]]) in
+                        self.beersReturned = result
                         self.tableView.reloadData()
                         self.statusIndicator.stopAnimating()
                     }
@@ -91,16 +91,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     ******************************************************************************************/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
         if beersReturned.count > 0
         {
-            var name = beersReturned[indexPath.row][0] as String
-            var imageStr = beersReturned[indexPath.row][2] as String
+            var name = beersReturned[indexPath.row][0] as! String
+            var imageStr = beersReturned[indexPath.row][2] as! String
             cell.detailTextLabel?.text = ""
             if searchBar.selectedScopeButtonIndex == 0
             {
-                let breweryName = beersReturned[indexPath.row][3] as String
+                let breweryName = beersReturned[indexPath.row][3] as! String
                 cell.detailTextLabel?.text = breweryName
             }
             cell.textLabel?.text = name
@@ -130,8 +130,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     ******************************************************************************************/
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.id = beersReturned[indexPath.row][1] as String
-        self.name = beersReturned[indexPath.row][0] as String
+        self.id = beersReturned[indexPath.row][1] as! String
+        self.name = beersReturned[indexPath.row][0] as! String
         
         if searchBar.selectedScopeButtonIndex == 0
         {
@@ -169,13 +169,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     {
         if segue.identifier == "fromSearch"
         {
-            var controller = segue.destinationViewController as CodeViewController
+            var controller = segue.destinationViewController as! CodeViewController
             controller.fromSearch = true
             controller.beerID = self.id
         }
         else if segue.identifier == "fromSearchToBrewery"
         {
-            var controller = segue.destinationViewController as BreweryViewController
+            var controller = segue.destinationViewController as! BreweryViewController
             controller.beerID = self.id
             controller.nameStr = self.name
         }

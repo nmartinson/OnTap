@@ -43,7 +43,7 @@ class GoogleDataProvider {
           if let json = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as? NSDictionary {
             if let results = json["results"] as? NSArray {
               for rawPlace:AnyObject in results {
-                let place = GooglePlace(dictionary: rawPlace as NSDictionary, acceptedTypes: types)
+                let place = GooglePlace(dictionary: rawPlace as! NSDictionary, acceptedTypes: types)
                 placesArray.append(place)
                 if let reference = place.photoReference {
                   self.fetchPhotoFromReference(reference) { image in
@@ -78,7 +78,7 @@ class GoogleDataProvider {
           if let json = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as? NSDictionary {
             if let results = json["results"] as? NSArray {
               for rawPlace:AnyObject in results {
-                let place = GooglePlace(dictionary: rawPlace as NSDictionary, acceptedTypes: ["food","bar","establishment"])
+                let place = GooglePlace(dictionary: rawPlace as! NSDictionary, acceptedTypes: ["food","bar","establishment"])
                 placesArray.append(place)
                 if let reference = place.photoReference {
                   self.fetchPhotoFromReference(reference) { image in
@@ -184,10 +184,17 @@ class GoogleDataProvider {
           UIApplication.sharedApplication().networkActivityIndicatorVisible = true
           session.downloadTaskWithURL(NSURL(string: urlString)!) {url, response, error in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            let downloadedPhoto = UIImage(data: NSData(contentsOfURL: url)!)
-            self.photoCache[reference] = downloadedPhoto
-            dispatch_async(dispatch_get_main_queue()) {
-              completion(downloadedPhoto)
+            if url != nil
+            {
+                let downloadedPhoto = UIImage(data: NSData(contentsOfURL: url)!)
+                self.photoCache[reference] = downloadedPhoto
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(downloadedPhoto)
+                }
+            }
+            else
+            {
+                println("NIL")
             }
           }.resume()
         }

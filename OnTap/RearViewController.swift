@@ -21,7 +21,7 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var item = menuItems[indexPath.row]
-        var cell = tableView.dequeueReusableCellWithIdentifier(item) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(item) as! UITableViewCell
         return cell
     }
     
@@ -78,7 +78,7 @@ class RearViewController: UITableViewController, UITableViewDataSource, UITableV
     {
         var friendsRequest = FBRequest.requestForMyFriends()
         friendsRequest.startWithCompletionHandler { (connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            var resultDict = result as NSDictionary
+            var resultDict = result as! NSDictionary
             println("Result dic: \(resultDict)")
         }
     }

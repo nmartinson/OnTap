@@ -33,21 +33,21 @@ class BreweryViewController: BaseInfoController
         BreweryDBapi().searchBreweryByID(beerID) {
             (result: Dictionary<String,AnyObject>?) in
             self.setLabels(result!)
-            self.image = result!["imageStr"] as String
+            self.image = result!["imageStr"] as! String
             self.getLabelImage(self.image)
         }
     }
     
     func setLabels(data: NSDictionary)
     {
-//        self.nameStr = data["name"] as String
-        let description = data["description"] as String
-        let website = data["website"] as String
-//        let styleDescription = data["styleDescription"] as String
-        let established = data["established"] as String
-//        let city = data["city"] as String
-//        let country = data["country"] as String
-        self.image = data["imageStr"] as String
+//        self.nameStr = data["name"] as! String
+        let description = data["description"] as! String
+        let website = data["website"] as! String
+//        let styleDescription = data["styleDescription"] as! String
+        let established = data["established"] as! String
+//        let city = data["city"] as! String
+//        let country = data["country"] as! String
+        self.image = data["imageStr"] as! String
         
         BreweryDBapi().getLabelImage(self.image) {
             (newImage: UIImage) in

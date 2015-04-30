@@ -22,23 +22,27 @@ class GooglePlace {
 
     init(dictionary:NSDictionary, acceptedTypes: [String])
     {
-        name = dictionary["name"] as String
+        name = dictionary["name"] as! String
         //    address = dictionary["vicinity"] as String
-        address = dictionary["formatted_address"] as String
-        let location = dictionary["geometry"]?["location"] as NSDictionary
-        let lat = location["lat"] as CLLocationDegrees
-        let lng = location["lng"] as CLLocationDegrees
-        placeID = dictionary["place_id"] as String
+        address = dictionary["formatted_address"]as! String
+        let location = dictionary["geometry"]?["location"]as! NSDictionary
+        let lat = location["lat"] as! CLLocationDegrees
+        let lng = location["lng"] as! CLLocationDegrees
+        placeID = dictionary["place_id"] as! String
         coordinate = CLLocationCoordinate2DMake(lat, lng)
 
         if let photos = dictionary["photos"] as? NSArray {
-          let photo = photos.firstObject as NSDictionary
-          photoReference = photo["photo_reference"] as? NSString
+          let photo = photos.firstObject as! NSDictionary
+          photoReference = photo["photo_reference"] as! String
+        }
+        else
+        {
+            photoReference = ""
         }
 
         var foundType = "restaurant"
         let possibleTypes = acceptedTypes.count > 0 ? acceptedTypes : ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
-        for type in dictionary["types"] as [String] {
+        for type in dictionary["types"] as! [String] {
           if contains(possibleTypes, type) {
             foundType = type
             break

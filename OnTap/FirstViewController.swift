@@ -42,11 +42,11 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         mCaptureSession = AVCaptureSession()
         videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         var error:NSErrorPointer = nil
-        videoInput = AVCaptureDeviceInput.deviceInputWithDevice(videoCaptureDevice, error: error) as AVCaptureDeviceInput
+        videoInput = AVCaptureDeviceInput.deviceInputWithDevice(videoCaptureDevice, error: error) as! AVCaptureDeviceInput
         AVCaptureVideoOrientation.Portrait
-        if(mCaptureSession.canAddInput(videoInput as AVCaptureInput))
+        if(mCaptureSession.canAddInput(videoInput as! AVCaptureInput))
         {
-            mCaptureSession.addInput(videoInput as AVCaptureInput)
+            mCaptureSession.addInput(videoInput as! AVCaptureInput)
         }
         else
         {
@@ -88,9 +88,9 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     {
         for metadataObject in metadataObjects
         {
-            var readableObject:AVMetadataMachineReadableCodeObject = metadataObject as AVMetadataMachineReadableCodeObject
+            var readableObject:AVMetadataMachineReadableCodeObject = metadataObject as! AVMetadataMachineReadableCodeObject
             
-            var type = (metadataObject as AVMetadataObject).type
+            var type = (metadataObject as! AVMetadataObject).type
 
             if( type == AVMetadataObjectTypeQRCode )
             {
@@ -122,7 +122,7 @@ class FirstViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     {
         if( segue.identifier == "CodeViewSegue")
         {
-            var controller = segue.destinationViewController as CodeViewController
+            var controller = segue.destinationViewController as! CodeViewController
             controller.codeStr = mCode
         }
     }
